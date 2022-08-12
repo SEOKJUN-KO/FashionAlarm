@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83D53BC257B201B8DF02EFC7 /* Pods_FashionAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA9DE5AEB59269F0F3B5DB6 /* Pods_FashionAlarm.framework */; };
 		8ECA8E3828A64F7C00C8CBCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */; };
 		8ECA8E3A28A64F7C00C8CBCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */; };
 		8ECA8E3C28A64F7C00C8CBCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3B28A64F7C00C8CBCC /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CA9DE5AEB59269F0F3B5DB6 /* Pods_FashionAlarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FashionAlarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		114CC8B0C9F6F383C368639B /* Pods-FashionAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FashionAlarm.release.xcconfig"; path = "Target Support Files/Pods-FashionAlarm/Pods-FashionAlarm.release.xcconfig"; sourceTree = "<group>"; };
 		8ECA8E3428A64F7C00C8CBCC /* FashionAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FashionAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8ECA8E4328A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8ECA8E4528A64F7C00C8CBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8A14549A71D1750DB28907E /* Pods-FashionAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FashionAlarm.debug.xcconfig"; path = "Target Support Files/Pods-FashionAlarm/Pods-FashionAlarm.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83D53BC257B201B8DF02EFC7 /* Pods_FashionAlarm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18013F36383ECF79F55DDBAE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E8A14549A71D1750DB28907E /* Pods-FashionAlarm.debug.xcconfig */,
+				114CC8B0C9F6F383C368639B /* Pods-FashionAlarm.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8ECA8E2B28A64F7C00C8CBCC = {
 			isa = PBXGroup;
 			children = (
 				8ECA8E3628A64F7C00C8CBCC /* FashionAlarm */,
 				8ECA8E3528A64F7C00C8CBCC /* Products */,
+				18013F36383ECF79F55DDBAE /* Pods */,
+				CDC3D47D34AD7C6F8DECE700 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +84,14 @@
 			path = FashionAlarm;
 			sourceTree = "<group>";
 		};
+		CDC3D47D34AD7C6F8DECE700 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CA9DE5AEB59269F0F3B5DB6 /* Pods_FashionAlarm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8ECA8E4828A64F7C00C8CBCC /* Build configuration list for PBXNativeTarget "FashionAlarm" */;
 			buildPhases = (
+				4B174D109C497A3E5C053752 /* [CP] Check Pods Manifest.lock */,
 				8ECA8E3028A64F7C00C8CBCC /* Sources */,
 				8ECA8E3128A64F7C00C8CBCC /* Frameworks */,
 				8ECA8E3228A64F7C00C8CBCC /* Resources */,
+				8445CADF7FE31CB186FCC2BA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -103,7 +130,7 @@
 				};
 			};
 			buildConfigurationList = 8ECA8E2F28A64F7C00C8CBCC /* Build configuration list for PBXProject "FashionAlarm" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4B174D109C497A3E5C053752 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FashionAlarm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8445CADF7FE31CB186FCC2BA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FashionAlarm/Pods-FashionAlarm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FashionAlarm/Pods-FashionAlarm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FashionAlarm/Pods-FashionAlarm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8ECA8E3028A64F7C00C8CBCC /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		8ECA8E4928A64F7C00C8CBCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8A14549A71D1750DB28907E /* Pods-FashionAlarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +380,7 @@
 		};
 		8ECA8E4A28A64F7C00C8CBCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 114CC8B0C9F6F383C368639B /* Pods-FashionAlarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
