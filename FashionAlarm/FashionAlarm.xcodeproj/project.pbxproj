@@ -3,85 +3,66 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8ECA8E1D28A6223F00C8CBCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E1C28A6223F00C8CBCC /* AppDelegate.swift */; };
-		8ECA8E1F28A6223F00C8CBCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E1E28A6223F00C8CBCC /* ViewController.swift */; };
-		8ECA8E2128A6224000C8CBCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E2028A6224000C8CBCC /* Assets.xcassets */; };
-		8ECA8E2428A6224000C8CBCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E2228A6224000C8CBCC /* Main.storyboard */; };
-		B7A0FE5649A2FD194AC0D7E7 /* Pods_FashionAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E516AE4A9E97E1D7199AA12 /* Pods_FashionAlarm.framework */; };
+		8ECA8E3828A64F7C00C8CBCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */; };
+		8ECA8E3A28A64F7C00C8CBCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */; };
+		8ECA8E3C28A64F7C00C8CBCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3B28A64F7C00C8CBCC /* ViewController.swift */; };
+		8ECA8E3F28A64F7C00C8CBCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */; };
+		8ECA8E4128A64F7C00C8CBCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */; };
+		8ECA8E4428A64F7C00C8CBCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E516AE4A9E97E1D7199AA12 /* Pods_FashionAlarm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FashionAlarm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		68FCC39913A72BC3960DB06A /* Pods-FashionAlarm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FashionAlarm.release.xcconfig"; path = "Target Support Files/Pods-FashionAlarm/Pods-FashionAlarm.release.xcconfig"; sourceTree = "<group>"; };
-		8ECA8E1928A6223F00C8CBCC /* FashionAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FashionAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8ECA8E1C28A6223F00C8CBCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8ECA8E1E28A6223F00C8CBCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8ECA8E2028A6224000C8CBCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8ECA8E2328A6224000C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8ECA8E2528A6224000C8CBCC /* FashionAlarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FashionAlarm.entitlements; sourceTree = "<group>"; };
-		EBAD1C65E266DBD8C8A7F0CE /* Pods-FashionAlarm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FashionAlarm.debug.xcconfig"; path = "Target Support Files/Pods-FashionAlarm/Pods-FashionAlarm.debug.xcconfig"; sourceTree = "<group>"; };
+		8ECA8E3428A64F7C00C8CBCC /* FashionAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FashionAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8ECA8E3B28A64F7C00C8CBCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8ECA8E3E28A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8ECA8E4328A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8ECA8E4528A64F7C00C8CBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8ECA8E1628A6223F00C8CBCC /* Frameworks */ = {
+		8ECA8E3128A64F7C00C8CBCC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7A0FE5649A2FD194AC0D7E7 /* Pods_FashionAlarm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2F4222C8C6F201399F322C4F /* Pods */ = {
+		8ECA8E2B28A64F7C00C8CBCC = {
 			isa = PBXGroup;
 			children = (
-				EBAD1C65E266DBD8C8A7F0CE /* Pods-FashionAlarm.debug.xcconfig */,
-				68FCC39913A72BC3960DB06A /* Pods-FashionAlarm.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		31E675E8875E216F89D3AEB0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2E516AE4A9E97E1D7199AA12 /* Pods_FashionAlarm.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8ECA8E1028A6223F00C8CBCC = {
-			isa = PBXGroup;
-			children = (
-				8ECA8E1B28A6223F00C8CBCC /* FashionAlarm */,
-				8ECA8E1A28A6223F00C8CBCC /* Products */,
-				2F4222C8C6F201399F322C4F /* Pods */,
-				31E675E8875E216F89D3AEB0 /* Frameworks */,
+				8ECA8E3628A64F7C00C8CBCC /* FashionAlarm */,
+				8ECA8E3528A64F7C00C8CBCC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8ECA8E1A28A6223F00C8CBCC /* Products */ = {
+		8ECA8E3528A64F7C00C8CBCC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8ECA8E1928A6223F00C8CBCC /* FashionAlarm.app */,
+				8ECA8E3428A64F7C00C8CBCC /* FashionAlarm.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8ECA8E1B28A6223F00C8CBCC /* FashionAlarm */ = {
+		8ECA8E3628A64F7C00C8CBCC /* FashionAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				8ECA8E1C28A6223F00C8CBCC /* AppDelegate.swift */,
-				8ECA8E1E28A6223F00C8CBCC /* ViewController.swift */,
-				8ECA8E2028A6224000C8CBCC /* Assets.xcassets */,
-				8ECA8E2228A6224000C8CBCC /* Main.storyboard */,
-				8ECA8E2528A6224000C8CBCC /* FashionAlarm.entitlements */,
+				8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */,
+				8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */,
+				8ECA8E3B28A64F7C00C8CBCC /* ViewController.swift */,
+				8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */,
+				8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */,
+				8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */,
+				8ECA8E4528A64F7C00C8CBCC /* Info.plist */,
 			);
 			path = FashionAlarm;
 			sourceTree = "<group>";
@@ -89,15 +70,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8ECA8E1828A6223F00C8CBCC /* FashionAlarm */ = {
+		8ECA8E3328A64F7C00C8CBCC /* FashionAlarm */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8ECA8E2828A6224000C8CBCC /* Build configuration list for PBXNativeTarget "FashionAlarm" */;
+			buildConfigurationList = 8ECA8E4828A64F7C00C8CBCC /* Build configuration list for PBXNativeTarget "FashionAlarm" */;
 			buildPhases = (
-				2EDEBB1A30D711FCFF10E04D /* [CP] Check Pods Manifest.lock */,
-				8ECA8E1528A6223F00C8CBCC /* Sources */,
-				8ECA8E1628A6223F00C8CBCC /* Frameworks */,
-				8ECA8E1728A6223F00C8CBCC /* Resources */,
-				790E9EB699C97DBD2A64DA09 /* [CP] Embed Pods Frameworks */,
+				8ECA8E3028A64F7C00C8CBCC /* Sources */,
+				8ECA8E3128A64F7C00C8CBCC /* Frameworks */,
+				8ECA8E3228A64F7C00C8CBCC /* Resources */,
 			);
 			buildRules = (
 			);
@@ -105,121 +84,89 @@
 			);
 			name = FashionAlarm;
 			productName = FashionAlarm;
-			productReference = 8ECA8E1928A6223F00C8CBCC /* FashionAlarm.app */;
+			productReference = 8ECA8E3428A64F7C00C8CBCC /* FashionAlarm.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8ECA8E1128A6223F00C8CBCC /* Project object */ = {
+		8ECA8E2C28A64F7C00C8CBCC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
-					8ECA8E1828A6223F00C8CBCC = {
+					8ECA8E3328A64F7C00C8CBCC = {
 						CreatedOnToolsVersion = 14.0;
 					};
 				};
 			};
-			buildConfigurationList = 8ECA8E1428A6223F00C8CBCC /* Build configuration list for PBXProject "FashionAlarm" */;
-			compatibilityVersion = "Xcode 12.0";
+			buildConfigurationList = 8ECA8E2F28A64F7C00C8CBCC /* Build configuration list for PBXProject "FashionAlarm" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 8ECA8E1028A6223F00C8CBCC;
-			productRefGroup = 8ECA8E1A28A6223F00C8CBCC /* Products */;
+			mainGroup = 8ECA8E2B28A64F7C00C8CBCC;
+			productRefGroup = 8ECA8E3528A64F7C00C8CBCC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8ECA8E1828A6223F00C8CBCC /* FashionAlarm */,
+				8ECA8E3328A64F7C00C8CBCC /* FashionAlarm */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8ECA8E1728A6223F00C8CBCC /* Resources */ = {
+		8ECA8E3228A64F7C00C8CBCC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ECA8E2128A6224000C8CBCC /* Assets.xcassets in Resources */,
-				8ECA8E2428A6224000C8CBCC /* Main.storyboard in Resources */,
+				8ECA8E4428A64F7C00C8CBCC /* LaunchScreen.storyboard in Resources */,
+				8ECA8E4128A64F7C00C8CBCC /* Assets.xcassets in Resources */,
+				8ECA8E3F28A64F7C00C8CBCC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2EDEBB1A30D711FCFF10E04D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FashionAlarm-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		790E9EB699C97DBD2A64DA09 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FashionAlarm/Pods-FashionAlarm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FashionAlarm/Pods-FashionAlarm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FashionAlarm/Pods-FashionAlarm-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		8ECA8E1528A6223F00C8CBCC /* Sources */ = {
+		8ECA8E3028A64F7C00C8CBCC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ECA8E1F28A6223F00C8CBCC /* ViewController.swift in Sources */,
-				8ECA8E1D28A6223F00C8CBCC /* AppDelegate.swift in Sources */,
+				8ECA8E3C28A64F7C00C8CBCC /* ViewController.swift in Sources */,
+				8ECA8E3828A64F7C00C8CBCC /* AppDelegate.swift in Sources */,
+				8ECA8E3A28A64F7C00C8CBCC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8ECA8E2228A6224000C8CBCC /* Main.storyboard */ = {
+		8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8ECA8E2328A6224000C8CBCC /* Base */,
+				8ECA8E3E28A64F7C00C8CBCC /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8ECA8E4328A64F7C00C8CBCC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8ECA8E2628A6224000C8CBCC /* Debug */ = {
+		8ECA8E4628A64F7C00C8CBCC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -269,17 +216,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		8ECA8E2728A6224000C8CBCC /* Release */ = {
+		8ECA8E4728A64F7C00C8CBCC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -323,93 +270,94 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		8ECA8E2928A6224000C8CBCC /* Debug */ = {
+		8ECA8E4928A64F7C00C8CBCC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBAD1C65E266DBD8C8A7F0CE /* Pods-FashionAlarm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = FashionAlarm/FashionAlarm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CT6NFX8K3K;
-				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_FILE = FashionAlarm/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.seokjun-ko.FashionAlarm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		8ECA8E2A28A6224000C8CBCC /* Release */ = {
+		8ECA8E4A28A64F7C00C8CBCC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68FCC39913A72BC3960DB06A /* Pods-FashionAlarm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = FashionAlarm/FashionAlarm.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CT6NFX8K3K;
-				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_FILE = FashionAlarm/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.seokjun-ko.FashionAlarm";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8ECA8E1428A6223F00C8CBCC /* Build configuration list for PBXProject "FashionAlarm" */ = {
+		8ECA8E2F28A64F7C00C8CBCC /* Build configuration list for PBXProject "FashionAlarm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8ECA8E2628A6224000C8CBCC /* Debug */,
-				8ECA8E2728A6224000C8CBCC /* Release */,
+				8ECA8E4628A64F7C00C8CBCC /* Debug */,
+				8ECA8E4728A64F7C00C8CBCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8ECA8E2828A6224000C8CBCC /* Build configuration list for PBXNativeTarget "FashionAlarm" */ = {
+		8ECA8E4828A64F7C00C8CBCC /* Build configuration list for PBXNativeTarget "FashionAlarm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8ECA8E2928A6224000C8CBCC /* Debug */,
-				8ECA8E2A28A6224000C8CBCC /* Release */,
+				8ECA8E4928A64F7C00C8CBCC /* Debug */,
+				8ECA8E4A28A64F7C00C8CBCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8ECA8E1128A6223F00C8CBCC /* Project object */;
+	rootObject = 8ECA8E2C28A64F7C00C8CBCC /* Project object */;
 }
