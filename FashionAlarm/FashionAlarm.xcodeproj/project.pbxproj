@@ -10,7 +10,6 @@
 		83D53BC257B201B8DF02EFC7 /* Pods_FashionAlarm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA9DE5AEB59269F0F3B5DB6 /* Pods_FashionAlarm.framework */; };
 		8ECA8E3828A64F7C00C8CBCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */; };
 		8ECA8E3A28A64F7C00C8CBCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */; };
-		8ECA8E3C28A64F7C00C8CBCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3B28A64F7C00C8CBCC /* ViewController.swift */; };
 		8ECA8E3F28A64F7C00C8CBCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */; };
 		8ECA8E4128A64F7C00C8CBCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */; };
 		8ECA8E4428A64F7C00C8CBCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */; };
@@ -22,7 +21,6 @@
 		8ECA8E3428A64F7C00C8CBCC /* FashionAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FashionAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8ECA8E3B28A64F7C00C8CBCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8ECA8E3E28A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8ECA8E4328A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,7 +46,6 @@
 				E8A14549A71D1750DB28907E /* Pods-FashionAlarm.debug.xcconfig */,
 				114CC8B0C9F6F383C368639B /* Pods-FashionAlarm.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -75,7 +72,6 @@
 			children = (
 				8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */,
 				8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */,
-				8ECA8E3B28A64F7C00C8CBCC /* ViewController.swift */,
 				8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */,
 				8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */,
 				8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */,
@@ -207,7 +203,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ECA8E3C28A64F7C00C8CBCC /* ViewController.swift in Sources */,
 				8ECA8E3828A64F7C00C8CBCC /* AppDelegate.swift in Sources */,
 				8ECA8E3A28A64F7C00C8CBCC /* SceneDelegate.swift in Sources */,
 			);
