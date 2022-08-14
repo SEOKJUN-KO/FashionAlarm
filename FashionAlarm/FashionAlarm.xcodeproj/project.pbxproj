@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E9B16AE28A7E90A0009B126 /* AlarmListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B16AD28A7E90A0009B126 /* AlarmListViewController.swift */; };
-		8E9B16B528A8A9FA0009B126 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B16B328A8A9FA0009B126 /* AlarmCell.swift */; };
-		8E9B16B628A8A9FA0009B126 /* AlarmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9B16B428A8A9FA0009B126 /* AlarmCell.xib */; };
 		8ECA8E3828A64F7C00C8CBCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */; };
 		8ECA8E3A28A64F7C00C8CBCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */; };
 		8ECA8E3F28A64F7C00C8CBCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */; };
 		8ECA8E4128A64F7C00C8CBCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */; };
 		8ECA8E4428A64F7C00C8CBCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */; };
-		8EFD555C28A8E84B00B2C726 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD555B28A8E84B00B2C726 /* Alarm.swift */; };
+		8EFD555E28A8F75500B2C726 /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD555D28A8F75500B2C726 /* SetAlarmViewController.swift */; };
+		8EFD556028A8F7BC00B2C726 /* TimerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD555F28A8F7BC00B2C726 /* TimerStatus.swift */; };
+		8EFD556228A8F7E600B2C726 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD556128A8F7E600B2C726 /* Alert.swift */; };
+		8EFD556428A8F88400B2C726 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD556328A8F88400B2C726 /* UNUserNotificationCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8E9B16AD28A7E90A0009B126 /* AlarmListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmListViewController.swift; sourceTree = "<group>"; };
-		8E9B16B328A8A9FA0009B126 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
-		8E9B16B428A8A9FA0009B126 /* AlarmCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmCell.xib; sourceTree = "<group>"; };
 		8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8ECA8E3E28A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8ECA8E4328A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8ECA8E4528A64F7C00C8CBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8EFD555A28A8BCCD00B2C726 /* FashionAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FashionAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8EFD555B28A8E84B00B2C726 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		8EFD555A28A8BCCD00B2C726 /* FashionAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = FashionAlarm.app; path = "/Users/goseogjun/Desktop/FashionAlarm/FashionAlarm/build/Debug-iphoneos/FashionAlarm.app"; sourceTree = "<absolute>"; };
+		8EFD555D28A8F75500B2C726 /* SetAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
+		8EFD555F28A8F7BC00B2C726 /* TimerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStatus.swift; sourceTree = "<group>"; };
+		8EFD556128A8F7E600B2C726 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		8EFD556328A8F88400B2C726 /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNUserNotificationCenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,23 +47,22 @@
 			isa = PBXGroup;
 			children = (
 				8ECA8E3628A64F7C00C8CBCC /* FashionAlarm */,
-				8EFD555A28A8BCCD00B2C726 /* FashionAlarm.app */,
 			);
 			sourceTree = "<group>";
 		};
 		8ECA8E3628A64F7C00C8CBCC /* FashionAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				8EFD555D28A8F75500B2C726 /* SetAlarmViewController.swift */,
 				8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */,
 				8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */,
 				8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */,
 				8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */,
 				8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */,
 				8ECA8E4528A64F7C00C8CBCC /* Info.plist */,
-				8E9B16AD28A7E90A0009B126 /* AlarmListViewController.swift */,
-				8E9B16B328A8A9FA0009B126 /* AlarmCell.swift */,
-				8E9B16B428A8A9FA0009B126 /* AlarmCell.xib */,
-				8EFD555B28A8E84B00B2C726 /* Alarm.swift */,
+				8EFD555F28A8F7BC00B2C726 /* TimerStatus.swift */,
+				8EFD556128A8F7E600B2C726 /* Alert.swift */,
+				8EFD556328A8F88400B2C726 /* UNUserNotificationCenter.swift */,
 			);
 			path = FashionAlarm;
 			sourceTree = "<group>";
@@ -128,7 +127,6 @@
 			files = (
 				8ECA8E4428A64F7C00C8CBCC /* LaunchScreen.storyboard in Resources */,
 				8ECA8E4128A64F7C00C8CBCC /* Assets.xcassets in Resources */,
-				8E9B16B628A8A9FA0009B126 /* AlarmCell.xib in Resources */,
 				8ECA8E3F28A64F7C00C8CBCC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,10 +139,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ECA8E3828A64F7C00C8CBCC /* AppDelegate.swift in Sources */,
-				8E9B16AE28A7E90A0009B126 /* AlarmListViewController.swift in Sources */,
-				8EFD555C28A8E84B00B2C726 /* Alarm.swift in Sources */,
+				8EFD556028A8F7BC00B2C726 /* TimerStatus.swift in Sources */,
 				8ECA8E3A28A64F7C00C8CBCC /* SceneDelegate.swift in Sources */,
-				8E9B16B528A8A9FA0009B126 /* AlarmCell.swift in Sources */,
+				8EFD556228A8F7E600B2C726 /* Alert.swift in Sources */,
+				8EFD555E28A8F75500B2C726 /* SetAlarmViewController.swift in Sources */,
+				8EFD556428A8F88400B2C726 /* UNUserNotificationCenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
