@@ -16,6 +16,7 @@
 		8EFD556028A8F7BC00B2C726 /* TimerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD555F28A8F7BC00B2C726 /* TimerStatus.swift */; };
 		8EFD556228A8F7E600B2C726 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD556128A8F7E600B2C726 /* Alert.swift */; };
 		8EFD556428A8F88400B2C726 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD556328A8F88400B2C726 /* UNUserNotificationCenter.swift */; };
+		8EFD556628A9012700B2C726 /* SetLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD556528A9012700B2C726 /* SetLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8EFD555F28A8F7BC00B2C726 /* TimerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStatus.swift; sourceTree = "<group>"; };
 		8EFD556128A8F7E600B2C726 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		8EFD556328A8F88400B2C726 /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNUserNotificationCenter.swift; sourceTree = "<group>"; };
+		8EFD556528A9012700B2C726 /* SetLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				8EFD555F28A8F7BC00B2C726 /* TimerStatus.swift */,
 				8EFD556128A8F7E600B2C726 /* Alert.swift */,
 				8EFD556328A8F88400B2C726 /* UNUserNotificationCenter.swift */,
+				8EFD556528A9012700B2C726 /* SetLocationViewController.swift */,
 			);
 			path = FashionAlarm;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ECA8E3828A64F7C00C8CBCC /* AppDelegate.swift in Sources */,
+				8EFD556628A9012700B2C726 /* SetLocationViewController.swift in Sources */,
 				8EFD556028A8F7BC00B2C726 /* TimerStatus.swift in Sources */,
 				8ECA8E3A28A64F7C00C8CBCC /* SceneDelegate.swift in Sources */,
 				8EFD556228A8F7E600B2C726 /* Alert.swift in Sources */,
