@@ -70,3 +70,16 @@ class AlarmResultViewController: UIViewController {
     }
 }
 
+extension AlarmResultViewController {
+    private func recommendClothes(degree: Double) -> String {
+        if( degree >= 28 ){ return "민소매, 반팔, 반바지, 짧은 치마, 린넨 옷"
+        } else if( degree >= 23 ) { return "반팔, 얇은 셔츠, 반바지, 면바지"
+        } else if( degree >= 20) { return "블라우스, 긴팔 티, 면바지, 슬랙스"
+        } else if( degree >= 17) { return "얇은 가디건, 니트, 맨투맨, 후드, 긴 바지"
+        } else if( degree >= 12) { return "자켓, 가디건, 청자켓, 니트, 스타킹, 기모바지"
+        } else if( degree >= 9) { return "트렌치 코트, 야상, 점퍼, 스타킹, 기모바지"
+        } else if ( degree >= 5) { return "울 코트, 히트택, 가죽 옷, 기모"
+        } else { return "패딩, 두꺼운 코트, 누빔 옷, 기모, 목도리" }
+    }
+}
+
