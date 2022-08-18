@@ -15,35 +15,38 @@ class AlarmResultViewController: UIViewController {
     @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet weak var maxTempLabel: UILabel!
     @IBOutlet weak var weatherStackView: UIStackView!
-
+    @IBOutlet weak var recommendClothesLabel: UILabel!
+    
+    var latitude: Double?
+    var longitude: Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
+        getCoordinates()
         getCurrentWeather()
     }
+}
+
+extension AlarmResultViewController {
     
-    func configureView(weatherInformation: WeatherInformation) {
-        self.cityNameLabel.text = weatherInformation.name // 도시 이름 라벨에 표시
-        if let weather = weatherInformation.weather.first {
-            self.weatherDescriptionLabel.text = weather.description // 현재 날씨 라벨에 정보 표시
-        }
-        self.tempLabel.text = "\(Int(weatherInformation.temp.temp - 273.15))℃" // 섭씨온도 변환
-        self.minTempLabel.text = "최저: \(Int(weatherInformation.temp.minTemp - 273.15))℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
-        self.maxTempLabel.text = "최고: \(Int(weatherInformation.temp.maxTemp - 273.15))℃" // 최고온도 섭씨온도 변환 후 라벨에 표시
-    }
-    
-    func showAlert(message: String) { // 에러시 alert 하는 함수
-        let alert = UIAlertController(title: "에러", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+    private func getCoordinates() {
+        let userDefaults = UserDefaults.standard
+        guard let data = userDefaults.object(forKey: "FashionAlarmCoordinates") as? [String: Double] else { return }
+        guard let lat = data["latitude"] else { return }
+        guard let lon = data["longitude"] else { return }
+        latitude = lat
+        longitude = lon
+        guard let address = userDefaults.object(forKey: "FashionAlarmAddress") as? String else { return }
+        self.cityNameLabel.text =  address
     }
     
     // 날씨 정보 받아오는 함수
     func getCurrentWeather() {
-        
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=37.566627714098&lon=126.85062957695&appid=ff922c126429116c4fc0db7be1ee99af&lang=kr") else { return }
+        guard let lat = latitude else { return }
+        guard let lon = longitude else { return }
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=ff922c126429116c4fc0db7be1ee99af&lang=kr") else { return }
         
         let session = URLSession(configuration: .default)
         // url로 data 요청
@@ -68,18 +71,32 @@ class AlarmResultViewController: UIViewController {
             }
         }.resume() // 작업 실행
     }
-}
-
-extension AlarmResultViewController {
-    private func recommendClothes(degree: Double) -> String {
-        if( degree >= 28 ){ return "민소매, 반팔, 반바지, 짧은 치마, 린넨 옷"
-        } else if( degree >= 23 ) { return "반팔, 얇은 셔츠, 반바지, 면바지"
-        } else if( degree >= 20) { return "블라우스, 긴팔 티, 면바지, 슬랙스"
-        } else if( degree >= 17) { return "얇은 가디건, 니트, 맨투맨, 후드, 긴 바지"
-        } else if( degree >= 12) { return "자켓, 가디건, 청자켓, 니트, 스타킹, 기모바지"
-        } else if( degree >= 9) { return "트렌치 코트, 야상, 점퍼, 스타킹, 기모바지"
-        } else if ( degree >= 5) { return "울 코트, 히트택, 가죽 옷, 기모"
-        } else { return "패딩, 두꺼운 코트, 누빔 옷, 기모, 목도리" }
+    
+    func configureView(weatherInformation: WeatherInformation) {
+        if let weather = weatherInformation.weather.first {
+            self.weatherDescriptionLabel.text = weather.description // 현재 날씨 라벨에 정보 표시
+        }
+        self.tempLabel.text = "\(Int(weatherInformation.temp.temp - 273.15))℃" // 섭씨온도 변환
+        self.minTempLabel.text = "최저: \(Int(weatherInformation.temp.minTemp - 273.15))℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
+        self.maxTempLabel.text = "최고: \(Int(weatherInformation.temp.maxTemp - 273.15))℃" // 최고온도 섭씨온도 변환 후 라벨에 표시
+        recommendClothes(degree: (weatherInformation.temp.minTemp - 273.15 + weatherInformation.temp.maxTemp - 273.15)/2 )
+    }
+    
+    func showAlert(message: String) { // 에러시 alert 하는 함수
+        let alert = UIAlertController(title: "에러", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func recommendClothes(degree: Double) {
+        if( degree >= 28 ){ recommendClothesLabel.text = "민소매, 반팔, 반바지, 짧은 치마, 린넨 옷"
+        } else if( degree >= 23 ) { recommendClothesLabel.text = "반팔, 얇은 셔츠, 반바지, 면바지"
+        } else if( degree >= 20 ) { recommendClothesLabel.text = "블라우스, 긴팔 티, 면바지, 슬랙스"
+        } else if( degree >= 17 ) { recommendClothesLabel.text = "얇은 가디건, 니트, 맨투맨, 후드, 긴 바지"
+        } else if( degree >= 12 ) { recommendClothesLabel.text = "자켓, 가디건, 청자켓, 니트, 스타킹, 기모바지"
+        } else if( degree >= 9 ) { recommendClothesLabel.text = "트렌치 코트, 야상, 점퍼, 스타킹, 기모바지"
+        } else if ( degree >= 5 ) { recommendClothesLabel.text = "울 코트, 히트택, 가죽 옷, 기모"
+        } else { recommendClothesLabel.text = "패딩, 두꺼운 코트, 누빔 옷, 기모, 목도리" }
     }
 }
 

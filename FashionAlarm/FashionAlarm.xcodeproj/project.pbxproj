@@ -62,7 +62,6 @@
 		8ECA8E3628A64F7C00C8CBCC /* FashionAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				8EFD555D28A8F75500B2C726 /* SetAlarmViewController.swift */,
 				8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */,
 				8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */,
 				8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */,
@@ -72,6 +71,7 @@
 				8EFD555F28A8F7BC00B2C726 /* TimerStatus.swift */,
 				8EFD556128A8F7E600B2C726 /* Alert.swift */,
 				8EFD556328A8F88400B2C726 /* UNUserNotificationCenter.swift */,
+				8EFD555D28A8F75500B2C726 /* SetAlarmViewController.swift */,
 				8EFD556528A9012700B2C726 /* SetLocationViewController.swift */,
 				8E7E5CDF28AA8D81000C30B5 /* AlarmResultViewController.swift */,
 				8E7E5CE128AA8DC2000C30B5 /* WeatherInformation.swift */,

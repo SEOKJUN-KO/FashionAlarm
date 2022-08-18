@@ -314,12 +314,21 @@ ex) 용담2동 -&gt; 용담이동  - 행정 구역 단위로 적어주세요
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결과" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoY-zo-KPv">
+                                <rect key="frame" x="20" y="510.33333333333331" width="350" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TJV-ne-dfU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="TJV-ne-dfU" firstAttribute="trailing" secondItem="xoY-zo-KPv" secondAttribute="trailing" constant="20" id="39c-zW-lET"/>
                             <constraint firstItem="TJV-ne-dfU" firstAttribute="trailing" secondItem="fBf-zM-zlg" secondAttribute="trailing" constant="24" id="H3b-lY-JGp"/>
+                            <constraint firstItem="xoY-zo-KPv" firstAttribute="leading" secondItem="TJV-ne-dfU" secondAttribute="leading" constant="20" id="J3H-oX-aIq"/>
                             <constraint firstItem="fBf-zM-zlg" firstAttribute="top" secondItem="TJV-ne-dfU" secondAttribute="top" constant="179" id="rrD-Hn-lgA"/>
+                            <constraint firstItem="xoY-zo-KPv" firstAttribute="top" secondItem="fBf-zM-zlg" secondAttribute="bottom" constant="100" id="way-Hk-pCG"/>
                             <constraint firstItem="fBf-zM-zlg" firstAttribute="leading" secondItem="TJV-ne-dfU" secondAttribute="leading" constant="24" id="xE9-Sj-w5N"/>
                         </constraints>
                     </view>
@@ -328,6 +337,7 @@ ex) 용담2동 -&gt; 용담이동  - 행정 구역 단위로 적어주세요
                         <outlet property="cityNameLabel" destination="e2a-gu-Bha" id="QdM-QC-PNr"/>
                         <outlet property="maxTempLabel" destination="TeN-l0-Rsl" id="KRe-Qd-r2P"/>
                         <outlet property="minTempLabel" destination="dkn-Uc-2OF" id="Xr0-PO-CYf"/>
+                        <outlet property="recommendClothesLabel" destination="xoY-zo-KPv" id="Xto-ly-FR3"/>
                         <outlet property="tempLabel" destination="W3h-D3-dto" id="vEC-hp-CE9"/>
                         <outlet property="weatherDescriptionLabel" destination="4bR-Cm-yLw" id="Q13-rA-sGd"/>
                         <outlet property="weatherStackView" destination="fBf-zM-zlg" id="ohr-JG-dM0"/>
