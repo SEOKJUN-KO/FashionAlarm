@@ -51,6 +51,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E0BD65028AE16E10067B281 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */,
+				8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */,
+				8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */,
+				8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */,
+				8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8E0BD65128AE16EA0067B281 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8E0BD65528AE185E0067B281 /* Collections */,
+				8E0BD65428AE17830067B281 /* Classes */,
+				8E0BD65228AE16F40067B281 /* VCs */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		8E0BD65228AE16F40067B281 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				8EFD555D28A8F75500B2C726 /* SetAlarmViewController.swift */,
+				8EFD556528A9012700B2C726 /* SetLocationViewController.swift */,
+				8E7E5CDF28AA8D81000C30B5 /* AlarmResultViewController.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		8E0BD65428AE17830067B281 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8EFD556328A8F88400B2C726 /* UNUserNotificationCenter.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8E0BD65528AE185E0067B281 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				8EFD555F28A8F7BC00B2C726 /* TimerStatus.swift */,
+				8EFD556128A8F7E600B2C726 /* Alert.swift */,
+				8E7E5CE128AA8DC2000C30B5 /* WeatherInformation.swift */,
+				8E7E5CE328AA8DE2000C30B5 /* ErrorMessage.swift */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
 		8ECA8E2B28A64F7C00C8CBCC = {
 			isa = PBXGroup;
 			children = (
@@ -62,20 +113,9 @@
 		8ECA8E3628A64F7C00C8CBCC /* FashionAlarm */ = {
 			isa = PBXGroup;
 			children = (
-				8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */,
-				8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */,
-				8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */,
-				8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */,
-				8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */,
+				8E0BD65028AE16E10067B281 /* Resources */,
+				8E0BD65128AE16EA0067B281 /* Sources */,
 				8ECA8E4528A64F7C00C8CBCC /* Info.plist */,
-				8EFD555F28A8F7BC00B2C726 /* TimerStatus.swift */,
-				8EFD556128A8F7E600B2C726 /* Alert.swift */,
-				8EFD556328A8F88400B2C726 /* UNUserNotificationCenter.swift */,
-				8EFD555D28A8F75500B2C726 /* SetAlarmViewController.swift */,
-				8EFD556528A9012700B2C726 /* SetLocationViewController.swift */,
-				8E7E5CDF28AA8D81000C30B5 /* AlarmResultViewController.swift */,
-				8E7E5CE128AA8DC2000C30B5 /* WeatherInformation.swift */,
-				8E7E5CE328AA8DE2000C30B5 /* ErrorMessage.swift */,
 			);
 			path = FashionAlarm;
 			sourceTree = "<group>";
