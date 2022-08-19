@@ -24,12 +24,43 @@ class AlarmResultViewController: UIViewController {
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
-        getCoordinates()
-        getCurrentWeather()
+//        getCoordinates()
+//        getCurrentWeather()
+        loadAllInfo()
     }
 }
 
 extension AlarmResultViewController {
+    
+    private func saveAllInfo(weather: String , maxTmp: Double, minTmp: Double, recommend: String) {
+        let userDefaults = UserDefaults.standard
+        //    날짜, 날씨, 최대 기온, 최소 기온, 추천
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let current_date_string = formatter.string(from: Date())
+        let data: [String:Any] = ["date": current_date_string, "weather": weather, "maxTmp": maxTmp, "minTmp": minTmp, "recommend": recommend]
+        userDefaults.set( data, forKey: "FashionAllInfo" )
+    }
+    
+    private func loadAllInfo() {
+        let userDefaults = UserDefaults.standard
+        guard let data = userDefaults.object(forKey: "FashionAllInfo") as? [String: Any] else { return } // 저장된 값이 없다. = 앱 사용이 처음이다.
+        guard let date = data["date"] as? String else { return }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let current_date_string = formatter.string(from: Date())
+        if( date != current_date_string ){ // 날짜가 다른 알람이 울려 정보 다시 얻어야함
+            getCoordinates()
+            getCurrentWeather()
+            return
+        }
+        guard let weather = data["weather"] as? String else { return }
+        guard let maxTmp = data["maxTmp"] as? Double else { return }
+        guard let minTmp = data["minTmp"] as? Double else { return }
+        guard let recommend = data["recommend"] as? String else { return }
+        
+    }
+    
     
     private func getCoordinates() {
         let userDefaults = UserDefaults.standard
@@ -76,7 +107,7 @@ extension AlarmResultViewController {
         if let weather = weatherInformation.weather.first {
             self.weatherDescriptionLabel.text = weather.description // 현재 날씨 라벨에 정보 표시
         }
-        self.tempLabel.text = "\(Int(weatherInformation.temp.temp - 273.15))℃" // 섭씨온도 변환
+//        self.tempLabel.text = "\(Int(weatherInformation.temp.temp - 273.15))℃" // 섭씨온도 변환
         self.minTempLabel.text = "최저: \(Int(weatherInformation.temp.minTemp - 273.15))℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
         self.maxTempLabel.text = "최고: \(Int(weatherInformation.temp.maxTemp - 273.15))℃" // 최고온도 섭씨온도 변환 후 라벨에 표시
         recommendClothes(degree: (weatherInformation.temp.minTemp - 273.15 + weatherInformation.temp.maxTemp - 273.15)/2 )

@@ -66,9 +66,9 @@
 		8E0BD65128AE16EA0067B281 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8E0BD65228AE16F40067B281 /* VCs */,
 				8E0BD65528AE185E0067B281 /* Collections */,
 				8E0BD65428AE17830067B281 /* Classes */,
-				8E0BD65228AE16F40067B281 /* VCs */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

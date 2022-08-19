@@ -265,7 +265,7 @@ ex) 용담2동 -&gt; 용담이동  - 행정 구역 단위로 적어주세요
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-zM-zlg">
-                                <rect key="frame" x="24" y="267" width="342" height="143.33333333333337"/>
+                                <rect key="frame" x="24" y="267" width="342" height="145.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lv3-mg-olF">
                                         <rect key="frame" x="149.33333333333334" y="0.0" width="43.333333333333343" height="62"/>
@@ -285,16 +285,16 @@ ex) 용담2동 -&gt; 용담이동  - 행정 구역 단위로 적어주세요
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="w8h-S6-c4m">
-                                        <rect key="frame" x="82.666666666666686" y="72" width="177" height="71.333333333333314"/>
+                                        <rect key="frame" x="82.666666666666686" y="72" width="177" height="73.333333333333314"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3h-D3-dto">
-                                                <rect key="frame" x="39.999999999999986" y="0.0" width="97.000000000000014" height="48"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3h-D3-dto">
+                                                <rect key="frame" x="63.333333333333329" y="0.0" width="50" height="50"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vho-fJ-zn2">
-                                                <rect key="frame" x="0.0" y="51" width="177" height="20.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="53" width="177" height="20.333333333333329"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최고: 30℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeN-l0-Rsl">
                                                         <rect key="frame" x="0.0" y="0.0" width="78.666666666666671" height="20.333333333333332"/>
@@ -315,7 +315,7 @@ ex) 용담2동 -&gt; 용담이동  - 행정 구역 단위로 적어주세요
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결과" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoY-zo-KPv">
-                                <rect key="frame" x="20" y="510.33333333333331" width="350" height="20.333333333333314"/>
+                                <rect key="frame" x="20" y="512.33333333333337" width="350" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
