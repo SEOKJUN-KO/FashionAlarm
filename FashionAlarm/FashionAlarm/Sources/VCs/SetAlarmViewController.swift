@@ -19,6 +19,8 @@ class SetAlarmViewController: UIViewController {
     @IBOutlet weak var iterSwitch: UISwitch!
     @IBOutlet weak var offMusicBtn: UIButton!
     
+    
+    
     // 데이트 피커 타이머 초기화가 1분이기 떄문에 60초로
     var duration = 60
     var timerStatus: TimerStatus = .end // 타이머의 초기값
@@ -128,7 +130,7 @@ class SetAlarmViewController: UIViewController {
                     else{
                         self.stopTimer()
                     }
-                    
+                    self.tabBarController?.selectedIndex = 1
                 }
             })
             self.timer?.resume()
