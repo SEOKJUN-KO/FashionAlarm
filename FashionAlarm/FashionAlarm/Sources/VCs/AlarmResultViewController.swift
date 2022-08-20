@@ -24,15 +24,13 @@ class AlarmResultViewController: UIViewController {
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
-//        getCoordinates()
-//        getCurrentWeather()
         loadAllInfo()
     }
 }
 
 extension AlarmResultViewController {
     
-    private func saveAllInfo(weather: String , maxTmp: Double, minTmp: Double, recommend: String) {
+    private func saveAllInfo(weather: String , maxTmp: Int, minTmp: Int, recommend: String) {
         let userDefaults = UserDefaults.standard
         //    날짜, 날씨, 최대 기온, 최소 기온, 추천
         let formatter = DateFormatter()
@@ -44,7 +42,11 @@ extension AlarmResultViewController {
     
     private func loadAllInfo() {
         let userDefaults = UserDefaults.standard
-        guard let data = userDefaults.object(forKey: "FashionAllInfo") as? [String: Any] else { return } // 저장된 값이 없다. = 앱 사용이 처음이다.
+        guard let data = userDefaults.object(forKey: "FashionAllInfo") as? [String: Any] else {
+            getCoordinates()
+            getCurrentWeather()
+            return
+        } // 저장된 값이 없다. = 앱 사용이 처음이다.
         guard let date = data["date"] as? String else { return }
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -55,10 +57,14 @@ extension AlarmResultViewController {
             return
         }
         guard let weather = data["weather"] as? String else { return }
-        guard let maxTmp = data["maxTmp"] as? Double else { return }
-        guard let minTmp = data["minTmp"] as? Double else { return }
+        guard let maxTmp = data["maxTmp"] as? Int else { return }
+        guard let minTmp = data["minTmp"] as? Int else { return }
         guard let recommend = data["recommend"] as? String else { return }
-        
+        weatherStackView.isHidden = false
+        weatherDescriptionLabel.text = weather // 현재 날씨 라벨에 정보 표시
+        minTempLabel.text = "최저: \(maxTmp)℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
+        maxTempLabel.text = "최고: \(minTmp)℃" // 최고온도 섭씨온도 변환 후 라벨에 표시
+        recommendClothesLabel.text = recommend
     }
     
     
@@ -104,13 +110,14 @@ extension AlarmResultViewController {
     }
     
     func configureView(weatherInformation: WeatherInformation) {
-        if let weather = weatherInformation.weather.first {
-            self.weatherDescriptionLabel.text = weather.description // 현재 날씨 라벨에 정보 표시
-        }
+        guard let weather = weatherInformation.weather.first else { return }
+        self.weatherDescriptionLabel.text = weather.description // 현재 날씨 라벨에 정보 표시
 //        self.tempLabel.text = "\(Int(weatherInformation.temp.temp - 273.15))℃" // 섭씨온도 변환
         self.minTempLabel.text = "최저: \(Int(weatherInformation.temp.minTemp - 273.15))℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
         self.maxTempLabel.text = "최고: \(Int(weatherInformation.temp.maxTemp - 273.15))℃" // 최고온도 섭씨온도 변환 후 라벨에 표시
-        recommendClothes(degree: (weatherInformation.temp.minTemp - 273.15 + weatherInformation.temp.maxTemp - 273.15)/2 )
+        let recommend = recommendClothes( degree: (weatherInformation.temp.minTemp - 273.15 + weatherInformation.temp.maxTemp - 273.15)/2 )
+        self.recommendClothesLabel.text = recommend
+        saveAllInfo(weather: weather.description, maxTmp: Int(weatherInformation.temp.minTemp - 273.15), minTmp: Int(weatherInformation.temp.maxTemp - 273.15), recommend: recommend)
     }
     
     func showAlert(message: String) { // 에러시 alert 하는 함수
@@ -119,15 +126,15 @@ extension AlarmResultViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func recommendClothes(degree: Double) {
-        if( degree >= 28 ){ recommendClothesLabel.text = "민소매, 반팔, 반바지, 짧은 치마, 린넨 옷"
-        } else if( degree >= 23 ) { recommendClothesLabel.text = "반팔, 얇은 셔츠, 반바지, 면바지"
-        } else if( degree >= 20 ) { recommendClothesLabel.text = "블라우스, 긴팔 티, 면바지, 슬랙스"
-        } else if( degree >= 17 ) { recommendClothesLabel.text = "얇은 가디건, 니트, 맨투맨, 후드, 긴 바지"
-        } else if( degree >= 12 ) { recommendClothesLabel.text = "자켓, 가디건, 청자켓, 니트, 스타킹, 기모바지"
-        } else if( degree >= 9 ) { recommendClothesLabel.text = "트렌치 코트, 야상, 점퍼, 스타킹, 기모바지"
-        } else if ( degree >= 5 ) { recommendClothesLabel.text = "울 코트, 히트택, 가죽 옷, 기모"
-        } else { recommendClothesLabel.text = "패딩, 두꺼운 코트, 누빔 옷, 기모, 목도리" }
+    private func recommendClothes(degree: Double) -> String {
+        if( degree >= 28 ){ return "민소매, 반팔, 반바지, 짧은 치마, 린넨 옷"
+        } else if( degree >= 23 ) { return "반팔, 얇은 셔츠, 반바지, 면바지"
+        } else if( degree >= 20 ) { return "블라우스, 긴팔 티, 면바지, 슬랙스"
+        } else if( degree >= 17 ) { return "얇은 가디건, 니트, 맨투맨, 후드, 긴 바지"
+        } else if( degree >= 12 ) { return "자켓, 가디건, 청자켓, 니트, 스타킹, 기모바지"
+        } else if( degree >= 9 ) { return "트렌치 코트, 야상, 점퍼, 스타킹, 기모바지"
+        } else if ( degree >= 5 ) { return "울 코트, 히트택, 가죽 옷, 기모"
+        } else { return "패딩, 두꺼운 코트, 누빔 옷, 기모, 목도리" }
     }
 }
 
