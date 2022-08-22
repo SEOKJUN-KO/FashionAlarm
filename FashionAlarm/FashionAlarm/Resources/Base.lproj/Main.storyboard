@@ -111,6 +111,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="소리 끄기">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="stopMusic:" destination="QsB-El-FcB" eventType="touchUpInside" id="362-R7-U1T"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PM2-AK-ISx">
                                 <rect key="frame" x="145" y="610" width="100" height="30"/>

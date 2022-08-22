@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AudioToolbox
+import AVFoundation
 import UserNotifications
 
 class SetAlarmViewController: UIViewController {
@@ -26,6 +26,7 @@ class SetAlarmViewController: UIViewController {
     var timerStatus: TimerStatus = .end // 타이머의 초기값
     var currentSeconds = 0 // 현재 카운트 다운되고 있는 시간을 초로 저장하는 프로퍼티
     var timer: DispatchSourceTimer? // 타이머
+    var audioPlayer: AVAudioPlayer?
     var selectedTime: Date = Date()
     let calendar = Calendar.current
     var alert: Alert?
@@ -119,7 +120,7 @@ class SetAlarmViewController: UIViewController {
                 if self.currentSeconds <= 0 {
                     // 알람소리 -> iphonedev.wiki로 확인 가능
                     self.offMusicBtn.isHidden = false
-                    AudioServicesPlaySystemSound(1005)
+                    self.playMusic()
                     if(self.iterSwitch.isOn){
                         self.selectedTime = self.datePicker.date
                         if ( Int(self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow) <= 0 ){
@@ -152,4 +153,23 @@ class SetAlarmViewController: UIViewController {
         self.timer?.cancel()
         self.timer = nil
     }
+    
+    @IBAction func stopMusic(_ sender: Any) {
+        audioPlayer?.stop()
+    }
+}
+
+extension SetAlarmViewController {
+    private func playMusic() {
+        guard let url = Bundle.main.url(forResource: "Morning Kiss", withExtension: "mp3") else { return }
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.numberOfLoops = -1
+            audioPlayer?.play()
+        } catch {
+            print(error)
+        }
+    }
+    
 }
