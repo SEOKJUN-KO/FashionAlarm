@@ -18,8 +18,7 @@ class SetAlarmViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var iterSwitch: UISwitch!
     @IBOutlet weak var offMusicBtn: UIButton!
-    
-    
+    @IBOutlet weak var setLocationBtn: UIButton!
     
     // 데이트 피커 타이머 초기화가 1분이기 떄문에 60초로
     var duration = 60
@@ -37,7 +36,6 @@ class SetAlarmViewController: UIViewController {
         super.viewDidLoad()
         self.timerLabel.alpha = 0
         self.progressView.alpha = 0
-        self.configureToggleButton()
         self.datePicker.locale = Locale(identifier: "ko-KR")
         self.datePicker.date = Date()
         self.datePicker.addTarget(self, action: #selector(dateChange(datePikcer:)), for: UIControl.Event.valueChanged)
@@ -86,15 +84,11 @@ class SetAlarmViewController: UIViewController {
         }
     }
     
-    // 시작버튼 - 일시정지 <- 버튼 상태에 따라 변경
-    func configureToggleButton() {
-        self.startButton.setTitle("시작", for: .normal)
-    }
-    
     func startTimer() {
         self.alert = Alert(date: self.datePicker.date, isOn: self.iterSwitch.isOn)
         userNotificationCenter.addNotificationRequest(by: alert!) // 알림을 userNotificationCenter에 추가
         self.iterSwitch.isHidden = true
+        self.setLocationBtn.isHidden = true
         
         // 타이머를 설정하고 시작
         if self.timer == nil {
@@ -119,7 +113,6 @@ class SetAlarmViewController: UIViewController {
                 // 시간 0초 되면 타이머 종료
                 if self.currentSeconds <= 0 {
                     // 알람소리 -> iphonedev.wiki로 확인 가능
-                    self.offMusicBtn.isHidden = false
                     self.playMusic()
                     if(self.iterSwitch.isOn){
                         self.selectedTime = self.datePicker.date
@@ -144,6 +137,7 @@ class SetAlarmViewController: UIViewController {
         self.timerStatus = .end
         self.cancelButton.isEnabled = false
         self.startButton.isHidden = false
+        self.setLocationBtn.isHidden = false
         UIView.animate(withDuration: 0.5, animations: {
             self.timerLabel.alpha = 0
             self.progressView.alpha = 0
@@ -155,12 +149,14 @@ class SetAlarmViewController: UIViewController {
     }
     
     @IBAction func stopMusic(_ sender: Any) {
+        self.offMusicBtn.isHidden = true
         audioPlayer?.stop()
     }
 }
 
 extension SetAlarmViewController {
     private func playMusic() {
+        self.offMusicBtn.isHidden = false
         guard let url = Bundle.main.url(forResource: "Morning Kiss", withExtension: "mp3") else { return }
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
