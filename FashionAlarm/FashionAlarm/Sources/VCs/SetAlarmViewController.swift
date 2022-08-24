@@ -86,6 +86,7 @@ class SetAlarmViewController: UIViewController {
     
     func startTimer() {
         self.alert = Alert(date: self.datePicker.date, isOn: self.iterSwitch.isOn)
+        cancelButton.isHidden = false
         userNotificationCenter.addNotificationRequest(by: alert!) // 알림을 userNotificationCenter에 추가
         self.iterSwitch.isHidden = true
         self.setLocationBtn.isHidden = true
@@ -115,11 +116,8 @@ class SetAlarmViewController: UIViewController {
                     // 알람소리 -> iphonedev.wiki로 확인 가능
                     self.playMusic()
                     if(self.iterSwitch.isOn){
-                        self.selectedTime = self.datePicker.date
-                        if ( Int(self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow) <= 0 ){
-                            self.selectedTime = self.calendar.date(byAdding: .hour, value: 24, to: self.datePicker.date) ?? Date()
-                        }
-                        self.currentSeconds = Int(self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow)
+                        self.selectedTime = self.calendar.date(byAdding: .minute, value: 5, to: Date()) ?? Date()
+                        self.currentSeconds = Int(self.selectedTime.timeIntervalSinceNow)
                     }
                     else{
                         self.stopTimer()
@@ -135,7 +133,7 @@ class SetAlarmViewController: UIViewController {
         userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [alert!.id])
         self.iterSwitch.isHidden = false
         self.timerStatus = .end
-        self.cancelButton.isEnabled = false
+        self.cancelButton.isHidden = true
         self.startButton.isHidden = false
         self.setLocationBtn.isHidden = false
         UIView.animate(withDuration: 0.5, animations: {
