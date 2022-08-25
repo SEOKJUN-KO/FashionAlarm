@@ -24,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E0EBD4C28B7925800C30D94 /* Morning-Kiss.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Morning-Kiss.caf"; sourceTree = "<group>"; };
 		8E5824D628B3575300761FF2 /* Morning Kiss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Morning Kiss.mp3"; sourceTree = "<group>"; };
 		8E7E5CDC28AA8CF8000C30B5 /* FashionAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FashionAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7E5CDF28AA8D81000C30B5 /* AlarmResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmResultViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				8E5824D628B3575300761FF2 /* Morning Kiss.mp3 */,
+				8E0EBD4C28B7925800C30D94 /* Morning-Kiss.caf */,
 				8E0BD65028AE16E10067B281 /* Resources */,
 				8E0BD65128AE16EA0067B281 /* Sources */,
 				8ECA8E4528A64F7C00C8CBCC /* Info.plist */,
