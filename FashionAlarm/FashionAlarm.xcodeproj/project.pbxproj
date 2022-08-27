@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E0EBD4E28B8970700C30D94 /* Morning-Kiss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E0EBD4D28B8970700C30D94 /* Morning-Kiss.mp3 */; };
+		8E0EBD5628B8A07400C30D94 /* Morning Kiss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E0EBD5528B8A07400C30D94 /* Morning Kiss.mp3 */; };
 		8E7E5CE028AA8D81000C30B5 /* AlarmResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E5CDF28AA8D81000C30B5 /* AlarmResultViewController.swift */; };
 		8E7E5CE228AA8DC2000C30B5 /* WeatherInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E5CE128AA8DC2000C30B5 /* WeatherInformation.swift */; };
 		8E7E5CE428AA8DE2000C30B5 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E5CE328AA8DE2000C30B5 /* ErrorMessage.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		8E0EBD4D28B8970700C30D94 /* Morning-Kiss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Morning-Kiss.mp3"; sourceTree = "<group>"; };
+		8E0EBD5528B8A07400C30D94 /* Morning Kiss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Morning Kiss.mp3"; sourceTree = "<group>"; };
 		8E7E5CDC28AA8CF8000C30B5 /* FashionAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FashionAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7E5CDF28AA8D81000C30B5 /* AlarmResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmResultViewController.swift; sourceTree = "<group>"; };
 		8E7E5CE128AA8DC2000C30B5 /* WeatherInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInformation.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		8ECA8E3628A64F7C00C8CBCC /* FashionAlarm */ = {
 			isa = PBXGroup;
 			children = (
+				8E0EBD5528B8A07400C30D94 /* Morning Kiss.mp3 */,
 				8E0EBD4D28B8970700C30D94 /* Morning-Kiss.mp3 */,
 				8E0BD65028AE16E10067B281 /* Resources */,
 				8E0BD65128AE16EA0067B281 /* Sources */,
@@ -181,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E0EBD5628B8A07400C30D94 /* Morning Kiss.mp3 in Resources */,
 				8ECA8E4428A64F7C00C8CBCC /* LaunchScreen.storyboard in Resources */,
 				8ECA8E4128A64F7C00C8CBCC /* Assets.xcassets in Resources */,
 				8ECA8E3F28A64F7C00C8CBCC /* Main.storyboard in Resources */,

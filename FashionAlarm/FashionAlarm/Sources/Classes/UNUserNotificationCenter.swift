@@ -16,7 +16,7 @@ extension UNUserNotificationCenter {
         content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "Morning-Kiss.mp3") )
         
         let component = Calendar.current.dateComponents([.hour, .minute], from: alert.date) // 테이블 셀에 해당하는 alert 객체에서 시, 분을 뽑아 컴퍼넌트 만듬
-        let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: alert.isOn) // 특정 시간에 알림 발송하는데 사용 // repeats = 반복여부
+        let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: false) // 특정 시간에 알림 발송하는데 사용 // repeats = 반복여부
         let request = UNNotificationRequest(identifier: alert.id, content: content, trigger: trigger) // 리퀘스트 생성
         
         self.add(request, withCompletionHandler: nil) // 리퀘스트를 UNUserNotificationCenter에 추가
