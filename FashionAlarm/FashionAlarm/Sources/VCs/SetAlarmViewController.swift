@@ -90,7 +90,7 @@ class SetAlarmViewController: UIViewController {
         userNotificationCenter.addNotificationRequest(by: alert!) // 알림을 userNotificationCenter에 추가
         self.iterSwitch.isHidden = true
         self.setLocationBtn.isHidden = true
-        
+
         // 타이머를 설정하고 시작
         if self.timer == nil {
             // 타이머 인스턴스 생성, queue: 어떤 thread queue에서 반복 동작해야하는지 -> ui 관련 작업은 main에서 하는 것이 일반적
@@ -100,17 +100,17 @@ class SetAlarmViewController: UIViewController {
             // 타이머와 연동된 이벤트 handler 설정
             self.timer?.setEventHandler(handler: { [weak self] in
                 guard let self = self else { return }
-                
+
                 self.currentSeconds = Int(self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow)
                 // timer label 관련
                 let hour = self.currentSeconds / 3600
                 let minutes = (self.currentSeconds % 3600) / 60
                 let seconds = (self.currentSeconds % 3600) % 60
                 self.timerLabel.text = String(format: "%02d:%02d:%02d", hour, minutes, seconds)
-                
+
                 // progress bar 관련
                 self.progressView.progress = Float(self.currentSeconds) / Float(self.duration)
-                
+
                 // 시간 0초 되면 타이머 종료
                 if self.currentSeconds <= 0 {
                     // 알람소리 -> iphonedev.wiki로 확인 가능
