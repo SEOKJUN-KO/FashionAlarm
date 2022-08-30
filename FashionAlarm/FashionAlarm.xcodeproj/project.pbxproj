@@ -36,7 +36,7 @@
 		8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8ECA8E3E28A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		8ECA8E4328A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8ECA8E4528A64F7C00C8CBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EFD555D28A8F75500B2C726 /* SetAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +64,6 @@
 				8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */,
 				8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */,
 				8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */,
-				8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -124,6 +123,7 @@
 				8E0BD65028AE16E10067B281 /* Resources */,
 				8E0BD65128AE16EA0067B281 /* Sources */,
 				8ECA8E4528A64F7C00C8CBCC /* Info.plist */,
+				8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */,
 				8E79710228BCE33E0060CDC9 /* Assets.xcassets */,
 			);
 			path = FashionAlarm;
