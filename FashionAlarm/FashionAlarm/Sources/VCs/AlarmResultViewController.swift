@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class AlarmResultViewController: UIViewController {
     
@@ -19,9 +20,12 @@ class AlarmResultViewController: UIViewController {
     
     var latitude: Double?
     var longitude: Double?
+    private let skView = SKView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        initSpriteKitScene()
     }
     override func viewWillAppear(_ animated: Bool) {
         loadAllInfo()
@@ -135,6 +139,26 @@ extension AlarmResultViewController {
         } else if( degree >= 9 ) { return "트렌치 코트, 야상, 점퍼, 스타킹, 기모바지"
         } else if ( degree >= 5 ) { return "울 코트, 히트택, 가죽 옷, 기모"
         } else { return "패딩, 두꺼운 코트, 누빔 옷, 기모, 목도리" }
+    }
+    
+    private func setupUI(){
+        view.addSubview(skView)
+        skView.translatesAutoresizingMaskIntoConstraints = false
+        skView.backgroundColor = .clear
+        let top = skView.topAnchor.constraint(equalTo: view.topAnchor, constant:  0)
+        let leading = skView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+        let trailing = skView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
+        let bottom = skView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
+        
+        NSLayoutConstraint.activate([top, leading, trailing, bottom])
+    }
+    
+    private func initSpriteKitScene() {
+        let snowScene = SnowScene(size: CGSize(width: 1080, height: 1920))
+        snowScene.scaleMode = .aspectFill
+        snowScene.backgroundColor = .clear // 이래야 뒤에 viewcontroller가 보임
+        
+        skView.presentScene(snowScene)
     }
 }
 

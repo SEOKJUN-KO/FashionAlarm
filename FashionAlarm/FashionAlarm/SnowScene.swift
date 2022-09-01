@@ -6,3 +6,19 @@
 //
 
 import Foundation
+import SpriteKit
+
+class SnowScene: SKScene {
+    override func didMove(to view: SKView) { // entry point
+        super.didMove(to: view)
+        
+        setupParticleEmitter()
+    }
+    
+    private func setupParticleEmitter(){
+        let particleEmitter = SKEmitterNode(fileNamed: "Snow")!
+        particleEmitter.position = CGPoint(x: size.width / 2, y: size.height - 50)
+        addChild(particleEmitter)
+    }
+    
+}
