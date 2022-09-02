@@ -19,7 +19,8 @@
 		8ECA8E4428A64F7C00C8CBCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */; };
 		8EE1921228BF4FC40044EA64 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8EE1921028BF4FC40044EA64 /* Snow.sks */; };
 		8EE1921328BF4FC40044EA64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE1921128BF4FC40044EA64 /* Assets.xcassets */; };
-		8EE1921528BF546D0044EA64 /* SnowScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1921428BF546D0044EA64 /* SnowScene.swift */; };
+		8EE1921528BF546D0044EA64 /* WeatherAnimationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */; };
+		8EE1921728C226B40044EA64 /* Rain.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8EE1921628C226B40044EA64 /* Rain.sks */; };
 		8EFD555E28A8F75500B2C726 /* SetAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD555D28A8F75500B2C726 /* SetAlarmViewController.swift */; };
 		8EFD556028A8F7BC00B2C726 /* TimerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD555F28A8F7BC00B2C726 /* TimerStatus.swift */; };
 		8EFD556228A8F7E600B2C726 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD556128A8F7E600B2C726 /* Alert.swift */; };
@@ -42,7 +43,8 @@
 		8ECA8E4528A64F7C00C8CBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EE1921028BF4FC40044EA64 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		8EE1921128BF4FC40044EA64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8EE1921428BF546D0044EA64 /* SnowScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowScene.swift; sourceTree = "<group>"; };
+		8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAnimationScene.swift; sourceTree = "<group>"; };
+		8EE1921628C226B40044EA64 /* Rain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rain.sks; sourceTree = "<group>"; };
 		8EFD555D28A8F75500B2C726 /* SetAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
 		8EFD555F28A8F7BC00B2C726 /* TimerStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStatus.swift; sourceTree = "<group>"; };
 		8EFD556128A8F7E600B2C726 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -130,7 +132,8 @@
 				8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */,
 				8EE1921028BF4FC40044EA64 /* Snow.sks */,
 				8EE1921128BF4FC40044EA64 /* Assets.xcassets */,
-				8EE1921428BF546D0044EA64 /* SnowScene.swift */,
+				8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */,
+				8EE1921628C226B40044EA64 /* Rain.sks */,
 			);
 			path = FashionAlarm;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EE1921228BF4FC40044EA64 /* Snow.sks in Resources */,
+				8EE1921728C226B40044EA64 /* Rain.sks in Resources */,
 				8E0EBD5628B8A07400C30D94 /* Morning Kiss.mp3 in Resources */,
 				8ECA8E4428A64F7C00C8CBCC /* LaunchScreen.storyboard in Resources */,
 				8ECA8E4128A64F7C00C8CBCC /* Assets.xcassets in Resources */,
@@ -220,7 +224,7 @@
 				8E7E5CE028AA8D81000C30B5 /* AlarmResultViewController.swift in Sources */,
 				8EFD555E28A8F75500B2C726 /* SetAlarmViewController.swift in Sources */,
 				8EFD556428A8F88400B2C726 /* UNUserNotificationCenter.swift in Sources */,
-				8EE1921528BF546D0044EA64 /* SnowScene.swift in Sources */,
+				8EE1921528BF546D0044EA64 /* WeatherAnimationScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

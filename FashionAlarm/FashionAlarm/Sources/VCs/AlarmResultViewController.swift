@@ -158,7 +158,7 @@ extension AlarmResultViewController {
     }
     
     private func initSpriteKitScene() {
-        let snowScene = SnowScene(size: CGSize(width: 1080, height: 1920))
+        let snowScene = WeatherAnimationScene(size: CGSize(width: 1080, height: 1920))
         snowScene.scaleMode = .aspectFill
         snowScene.backgroundColor = .clear // 이래야 뒤에 viewcontroller가 보임
         
@@ -171,6 +171,12 @@ extension AlarmResultViewController {
         }
         else if(weather.contains("구름")){
             backgroundImg.image = UIImage(named: "구름.jpeg")!
+        }
+        else if(weather.contains("비")){
+            backgroundImg.image = UIImage(named: "비.jpeg")!
+        }
+        else if(weather.contains("눈")){
+            backgroundImg.image = UIImage(named: "눈.jpeg")!
         }
     }
 }
