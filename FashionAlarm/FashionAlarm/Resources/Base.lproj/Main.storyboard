@@ -324,6 +324,9 @@ ex) 용담2동 -&gt; 용담이동  - 행정 구역 단위로 적어주세요
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GZV-FN-ksv">
+                                <rect key="frame" x="0.0" y="88" width="390" height="673"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TJV-ne-dfU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -331,6 +334,10 @@ ex) 용담2동 -&gt; 용담이동  - 행정 구역 단위로 적어주세요
                             <constraint firstItem="TJV-ne-dfU" firstAttribute="trailing" secondItem="xoY-zo-KPv" secondAttribute="trailing" constant="20" id="39c-zW-lET"/>
                             <constraint firstItem="TJV-ne-dfU" firstAttribute="trailing" secondItem="fBf-zM-zlg" secondAttribute="trailing" constant="24" id="H3b-lY-JGp"/>
                             <constraint firstItem="xoY-zo-KPv" firstAttribute="leading" secondItem="TJV-ne-dfU" secondAttribute="leading" constant="20" id="J3H-oX-aIq"/>
+                            <constraint firstItem="GZV-FN-ksv" firstAttribute="leading" secondItem="TJV-ne-dfU" secondAttribute="leading" id="aiw-HZ-FR2"/>
+                            <constraint firstItem="TJV-ne-dfU" firstAttribute="bottom" secondItem="GZV-FN-ksv" secondAttribute="bottom" id="gYQ-tO-QpV"/>
+                            <constraint firstItem="GZV-FN-ksv" firstAttribute="top" secondItem="TJV-ne-dfU" secondAttribute="top" id="lSD-81-Tr7"/>
+                            <constraint firstItem="TJV-ne-dfU" firstAttribute="trailing" secondItem="GZV-FN-ksv" secondAttribute="trailing" id="rV3-Ps-Xow"/>
                             <constraint firstItem="fBf-zM-zlg" firstAttribute="top" secondItem="TJV-ne-dfU" secondAttribute="top" constant="179" id="rrD-Hn-lgA"/>
                             <constraint firstItem="xoY-zo-KPv" firstAttribute="top" secondItem="fBf-zM-zlg" secondAttribute="bottom" constant="100" id="way-Hk-pCG"/>
                             <constraint firstItem="fBf-zM-zlg" firstAttribute="leading" secondItem="TJV-ne-dfU" secondAttribute="leading" constant="24" id="xE9-Sj-w5N"/>
@@ -338,6 +345,7 @@ ex) 용담2동 -&gt; 용담이동  - 행정 구역 단위로 적어주세요
                     </view>
                     <navigationItem key="navigationItem" id="i7g-Uj-FJ1"/>
                     <connections>
+                        <outlet property="backgroundImg" destination="GZV-FN-ksv" id="Ayv-XX-L5a"/>
                         <outlet property="cityNameLabel" destination="e2a-gu-Bha" id="QdM-QC-PNr"/>
                         <outlet property="maxTempLabel" destination="TeN-l0-Rsl" id="KRe-Qd-r2P"/>
                         <outlet property="minTempLabel" destination="dkn-Uc-2OF" id="Xr0-PO-CYf"/>

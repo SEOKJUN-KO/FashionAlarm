@@ -10,6 +10,7 @@ import SpriteKit
 
 class AlarmResultViewController: UIViewController {
     
+    @IBOutlet weak var backgroundImg: UIImageView!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -24,6 +25,7 @@ class AlarmResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.sendSubviewToBack(backgroundImg)
         setupUI()
         initSpriteKitScene()
     }
@@ -61,6 +63,7 @@ extension AlarmResultViewController {
             return
         }
         guard let weather = data["weather"] as? String else { return }
+        chooseImgFromWeather(weather: weather)
         guard let maxTmp = data["maxTmp"] as? Int else { return }
         guard let minTmp = data["minTmp"] as? Int else { return }
         guard let recommend = data["recommend"] as? String else { return }
@@ -115,6 +118,7 @@ extension AlarmResultViewController {
     
     func configureView(weatherInformation: WeatherInformation) {
         guard let weather = weatherInformation.weather.first else { return }
+        chooseImgFromWeather(weather: weather.description)
         self.weatherDescriptionLabel.text = weather.description // 현재 날씨 라벨에 정보 표시
 //        self.tempLabel.text = "\(Int(weatherInformation.temp.temp - 273.15))℃" // 섭씨온도 변환
         self.minTempLabel.text = "최저: \(Int(weatherInformation.temp.minTemp - 273.15))℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
@@ -159,6 +163,15 @@ extension AlarmResultViewController {
         snowScene.backgroundColor = .clear // 이래야 뒤에 viewcontroller가 보임
         
         skView.presentScene(snowScene)
+    }
+    
+    private func chooseImgFromWeather(weather: String){
+        if(weather.contains("맑음")){
+            backgroundImg.image = UIImage(named: "맑음.jpeg")!
+        }
+        else if(weather.contains("구름")){
+            backgroundImg.image = UIImage(named: "구름.jpeg")!
+        }
     }
 }
 
