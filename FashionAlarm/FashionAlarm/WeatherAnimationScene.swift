@@ -13,21 +13,31 @@ class WeatherAnimationScene: SKScene {
         super.didMove(to: view)
         setupParticleEmitter()
     }
+    private var emitter: SKEmitterNode?
+}
+
+extension WeatherAnimationScene {
     private func setupParticleEmitter(){
+        stopEmitter()
         let userDefaults = UserDefaults.standard
         guard let data = userDefaults.object(forKey: "FashionAllInfo") as? [String: Any] else { return }
         guard let weather = data["weather"] as? String else { return }
-        print(weather)
         if( weather.contains("눈") ){
-            let particleEmitter = SKEmitterNode(fileNamed: "Snow")!
-            particleEmitter.position = CGPoint(x: size.width / 2, y: size.height - 50)
-            addChild(particleEmitter)
+            emitter = SKEmitterNode(fileNamed: "Snow")!
+            emitter!.position = CGPoint(x: size.width / 2, y: size.height - 50)
+            addChild(emitter!)
         }
         else if( weather.contains("비") ){
-            let particleEmitter = SKEmitterNode(fileNamed: "Rain")!
-            particleEmitter.position = CGPoint(x: size.width / 2, y: size.height - 50)
-            addChild(particleEmitter)
+            emitter = SKEmitterNode(fileNamed: "Rain")!
+            emitter!.position = CGPoint(x: size.width / 2, y: size.height - 50)
+            addChild(emitter!)
         }
-
+    }
+    private func stopEmitter() {
+        guard let emitter = emitter else { return }
+        emitter.particleBirthRate = 0.0
+        emitter.targetNode = nil
+        emitter.removeFromParent()
+        self.emitter = nil
     }
 }

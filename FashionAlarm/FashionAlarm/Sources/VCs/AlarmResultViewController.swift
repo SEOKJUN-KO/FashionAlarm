@@ -26,8 +26,6 @@ class AlarmResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.sendSubviewToBack(backgroundImg)
-        setupUI()
-        initSpriteKitScene()
     }
     override func viewWillAppear(_ animated: Bool) {
         loadAllInfo()
@@ -63,6 +61,12 @@ extension AlarmResultViewController {
             return
         }
         guard let weather = data["weather"] as? String else { return }
+        if(weather.contains("비") || weather.contains("눈")){
+            setupUI()
+        }
+        else if(self.view.subviews.contains(skView)){
+            skView.removeFromSuperview()
+        }
         chooseImgFromWeather(weather: weather)
         guard let maxTmp = data["maxTmp"] as? Int else { return }
         guard let minTmp = data["minTmp"] as? Int else { return }
@@ -119,6 +123,13 @@ extension AlarmResultViewController {
     func configureView(weatherInformation: WeatherInformation) {
         guard let weather = weatherInformation.weather.first else { return }
         chooseImgFromWeather(weather: weather.description)
+        if(weather.description.contains("비") || weather.description.contains("눈")){
+            setupUI()
+        }
+        else if(self.view.subviews.contains(skView)){
+            skView.removeFromSuperview()
+        }
+        
         self.weatherDescriptionLabel.text = weather.description // 현재 날씨 라벨에 정보 표시
 //        self.tempLabel.text = "\(Int(weatherInformation.temp.temp - 273.15))℃" // 섭씨온도 변환
         self.minTempLabel.text = "최저: \(Int(weatherInformation.temp.minTemp - 273.15))℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
@@ -146,6 +157,9 @@ extension AlarmResultViewController {
     }
     
     private func setupUI(){
+        if( self.view.subviews.contains(skView) ){
+            return
+        }
         view.addSubview(skView)
         skView.translatesAutoresizingMaskIntoConstraints = false
         skView.backgroundColor = .clear
@@ -153,16 +167,16 @@ extension AlarmResultViewController {
         let leading = skView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
         let trailing = skView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
         let bottom = skView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
-        
         NSLayoutConstraint.activate([top, leading, trailing, bottom])
+        
+        initSpriteKitScene()
     }
     
     private func initSpriteKitScene() {
-        let snowScene = WeatherAnimationScene(size: CGSize(width: 1080, height: 1920))
-        snowScene.scaleMode = .aspectFill
-        snowScene.backgroundColor = .clear // 이래야 뒤에 viewcontroller가 보임
-        
-        skView.presentScene(snowScene)
+        let spriteKitScene = WeatherAnimationScene(size: CGSize(width: 1080, height: 1920))
+        spriteKitScene.scaleMode = .aspectFill
+        spriteKitScene.backgroundColor = .clear // 이래야 뒤에 viewcontroller가 보임
+        skView.presentScene(spriteKitScene)
     }
     
     private func chooseImgFromWeather(weather: String){
