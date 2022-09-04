@@ -17,12 +17,13 @@ class WeatherAnimationScene: SKScene {
         let userDefaults = UserDefaults.standard
         guard let data = userDefaults.object(forKey: "FashionAllInfo") as? [String: Any] else { return }
         guard let weather = data["weather"] as? String else { return }
+        print(weather)
         if( weather.contains("눈") ){
             let particleEmitter = SKEmitterNode(fileNamed: "Snow")!
             particleEmitter.position = CGPoint(x: size.width / 2, y: size.height - 50)
             addChild(particleEmitter)
         }
-        else if( weather.contains("구름") ){
+        else if( weather.contains("비") ){
             let particleEmitter = SKEmitterNode(fileNamed: "Rain")!
             particleEmitter.position = CGPoint(x: size.width / 2, y: size.height - 50)
             addChild(particleEmitter)
