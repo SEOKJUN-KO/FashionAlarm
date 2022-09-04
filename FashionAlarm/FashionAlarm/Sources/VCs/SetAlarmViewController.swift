@@ -42,11 +42,6 @@ class SetAlarmViewController: UIViewController {
         self.offMusicBtn.isHidden = true
     }
     
-    @objc func dateChange(datePikcer: UIDatePicker){
-        self.selectedTime = datePikcer.date
-        
-    }
-    
     @IBAction func tapCancelButton(_ sender: UIButton) {
         switch self.timerStatus {
         case .start:
@@ -84,7 +79,20 @@ class SetAlarmViewController: UIViewController {
         }
     }
     
-    func startTimer() {
+    @IBAction func stopMusic(_ sender: Any) {
+        self.offMusicBtn.isHidden = true
+        audioPlayer?.stop()
+    }
+}
+
+extension SetAlarmViewController {
+    
+    @objc func dateChange(datePikcer: UIDatePicker){
+        self.selectedTime = datePikcer.date
+        
+    }
+    
+    private func startTimer() {
         self.alert = Alert(date: self.datePicker.date, isOn: self.iterSwitch.isOn)
         cancelButton.isHidden = false
         userNotificationCenter.addNotificationRequest(by: alert!) // 알림을 userNotificationCenter에 추가
@@ -129,7 +137,20 @@ class SetAlarmViewController: UIViewController {
         }
     }
     
-    func stopTimer() {
+    private func playMusic() {
+        self.offMusicBtn.isHidden = false
+        guard let url = Bundle.main.url(forResource: "Morning Kiss", withExtension: "mp3") else { return }
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.numberOfLoops = -1
+            audioPlayer?.play()
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func stopTimer() {
         userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [alert!.id])
         self.iterSwitch.isHidden = false
         self.timerStatus = .end
@@ -144,26 +165,6 @@ class SetAlarmViewController: UIViewController {
         self.startButton.isSelected = false
         self.timer?.cancel()
         self.timer = nil
-    }
-    
-    @IBAction func stopMusic(_ sender: Any) {
-        self.offMusicBtn.isHidden = true
-        audioPlayer?.stop()
-    }
-}
-
-extension SetAlarmViewController {
-    private func playMusic() {
-        self.offMusicBtn.isHidden = false
-        guard let url = Bundle.main.url(forResource: "Morning Kiss", withExtension: "mp3") else { return }
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.prepareToPlay()
-            audioPlayer?.numberOfLoops = -1
-            audioPlayer?.play()
-        } catch {
-            print(error)
-        }
     }
     
 }
