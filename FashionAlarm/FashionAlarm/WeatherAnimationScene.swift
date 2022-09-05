@@ -18,12 +18,12 @@ class WeatherAnimationScene: SKScene {
 
 extension WeatherAnimationScene {
     private func setupParticleEmitter(){
-        stopEmitter()
+        stopEmitter() // 메모리 누수화 확인 가능 || 객체가 계속 쌓인다면 메모리 누수 가능
         let userDefaults = UserDefaults.standard
         guard let data = userDefaults.object(forKey: "FashionAllInfo") as? [String: Any] else { return }
         guard let weather = data["weather"] as? String else { return }
         if( weather.contains("눈") ){
-            emitter = SKEmitterNode(fileNamed: "Snow")!
+            emitter = SKEmitterNode(fileNamed: "Snow")! // 중복처리 
             emitter!.position = CGPoint(x: size.width / 2, y: size.height - 50)
             addChild(emitter!)
         }

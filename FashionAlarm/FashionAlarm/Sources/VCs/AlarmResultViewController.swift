@@ -34,7 +34,7 @@ class AlarmResultViewController: UIViewController {
 
 extension AlarmResultViewController {
     
-    private func saveAllInfo(weather: String , maxTmp: Int, minTmp: Int, recommend: String) {
+    private func saveAllInfo(weather: String , maxTmp: Int, minTmp: Int, recommend: String) { // 함수 인자 너무 많음 -> 구조체로 전달
         let userDefaults = UserDefaults.standard
         //    날짜, 날씨, 최대 기온, 최소 기온, 추천
         let formatter = DateFormatter()
@@ -45,7 +45,7 @@ extension AlarmResultViewController {
     }
     
     private func loadAllInfo() {
-        let userDefaults = UserDefaults.standard
+        let userDefaults = UserDefaults.standard // 유틸로 빼서 구조화 -> 코드 간결화하기
         guard let data = userDefaults.object(forKey: "FashionAllInfo") as? [String: Any] else {
             getCoordinates()
             getCurrentWeather()
@@ -95,7 +95,7 @@ extension AlarmResultViewController {
         guard let lat = latitude else { return }
         guard let lon = longitude else { return }
         guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=ff922c126429116c4fc0db7be1ee99af&lang=kr") else { return }
-        
+        //url 데이터 요청하는 부분은 rest api call 구조화 후 간결화 코드 공부하기
         let session = URLSession(configuration: .default)
         // url로 data 요청
         session.dataTask(with: url) { [weak self] data, response, error in // weak self 순환 참조 문제 해결
@@ -145,7 +145,7 @@ extension AlarmResultViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func recommendClothes(degree: Double) -> String {
+    private func recommendClothes(degree: Double) -> String { // enum 처리 -> enum 공부하기
         if( degree >= 28 ){ return "민소매, 반팔, 반바지, 짧은 치마, 린넨 옷"
         } else if( degree >= 23 ) { return "반팔, 얇은 셔츠, 반바지, 면바지"
         } else if( degree >= 20 ) { return "블라우스, 긴팔 티, 면바지, 슬랙스"
@@ -160,7 +160,7 @@ extension AlarmResultViewController {
         if( self.view.subviews.contains(skView) ){
             return
         }
-        view.addSubview(skView)
+        view.addSubview(skView) // 만약 부모를 지우면 -> 자식들도 지워짐: 메모리 수준
         skView.translatesAutoresizingMaskIntoConstraints = false
         skView.backgroundColor = .clear
         let top = skView.topAnchor.constraint(equalTo: view.topAnchor, constant:  0)
@@ -173,13 +173,13 @@ extension AlarmResultViewController {
     }
     
     private func initSpriteKitScene() {
-        let spriteKitScene = WeatherAnimationScene(size: CGSize(width: 1080, height: 1920))
+        let spriteKitScene = WeatherAnimationScene(size: CGSize(width: 1080, height: 1920)) // 숫자를 -> 변수로 => 여러 곳에서 사용된다면 변수를 수정하는 것으로 전체를 수정하는 효과
         spriteKitScene.scaleMode = .aspectFill
         spriteKitScene.backgroundColor = .clear // 이래야 뒤에 viewcontroller가 보임
         skView.presentScene(spriteKitScene)
     }
     
-    private func chooseImgFromWeather(weather: String){
+    private func chooseImgFromWeather(weather: String){ // 중복처리
         if(weather.contains("맑음")){
             backgroundImg.image = UIImage(named: "맑음.jpeg")!
         }

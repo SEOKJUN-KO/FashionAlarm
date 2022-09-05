@@ -93,12 +93,16 @@ extension SetAlarmViewController {
     }
     
     private func startTimer() {
+        playMusic()
+        audioPlayer?.volume = 0
+        Timer.scheduledTimer(withTimeInterval: 600, repeats: false) { (t) in
+            self.audioPlayer?.volume = 100
+        }
         self.alert = Alert(date: self.datePicker.date, isOn: self.iterSwitch.isOn)
         cancelButton.isHidden = false
         userNotificationCenter.addNotificationRequest(by: alert!) // 알림을 userNotificationCenter에 추가
         self.iterSwitch.isHidden = true
         self.setLocationBtn.isHidden = true
-
         // 타이머를 설정하고 시작
         if self.timer == nil {
             // 타이머 인스턴스 생성, queue: 어떤 thread queue에서 반복 동작해야하는지 -> ui 관련 작업은 main에서 하는 것이 일반적
@@ -121,8 +125,9 @@ extension SetAlarmViewController {
 
                 // 시간 0초 되면 타이머 종료
                 if self.currentSeconds <= 0 {
+                    self.audioPlayer?.volume = 100
                     // 알람소리 -> iphonedev.wiki로 확인 가능
-                    self.playMusic()
+//                    self.playMusic()
                     if(self.iterSwitch.isOn){
                         self.selectedTime = self.calendar.date(byAdding: .minute, value: 5, to: Date()) ?? Date()
                         self.currentSeconds = Int(self.selectedTime.timeIntervalSinceNow)
