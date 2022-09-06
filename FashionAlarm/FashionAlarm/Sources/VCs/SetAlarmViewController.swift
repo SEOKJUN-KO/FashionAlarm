@@ -81,7 +81,8 @@ class SetAlarmViewController: UIViewController {
     
     @IBAction func stopMusic(_ sender: Any) {
         self.offMusicBtn.isHidden = true
-        audioPlayer?.stop()
+        audioPlayer?.volume = 0
+//        audioPlayer?.stop()
     }
 }
 
@@ -95,7 +96,7 @@ extension SetAlarmViewController {
     private func startTimer() {
         playMusic()
         audioPlayer?.volume = 0
-        Timer.scheduledTimer(withTimeInterval: 600, repeats: false) { (t) in
+        Timer.scheduledTimer(withTimeInterval: self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow, repeats: false) { (t) in
             self.audioPlayer?.volume = 100
         }
         self.alert = Alert(date: self.datePicker.date, isOn: self.iterSwitch.isOn)
@@ -125,10 +126,13 @@ extension SetAlarmViewController {
 
                 // 시간 0초 되면 타이머 종료
                 if self.currentSeconds <= 0 {
-                    self.audioPlayer?.volume = 100
+//                    self.audioPlayer?.volume = 100
                     // 알람소리 -> iphonedev.wiki로 확인 가능
 //                    self.playMusic()
                     if(self.iterSwitch.isOn){
+                        Timer.scheduledTimer(withTimeInterval: 300, repeats: false) { (t) in
+                            self.audioPlayer?.volume = 100
+                        }
                         self.selectedTime = self.calendar.date(byAdding: .minute, value: 5, to: Date()) ?? Date()
                         self.currentSeconds = Int(self.selectedTime.timeIntervalSinceNow)
                     }
@@ -168,6 +172,7 @@ extension SetAlarmViewController {
             self.datePicker.alpha = 1
         })
         self.startButton.isSelected = false
+        audioPlayer?.stop()
         self.timer?.cancel()
         self.timer = nil
     }
