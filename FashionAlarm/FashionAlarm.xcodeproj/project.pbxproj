@@ -17,6 +17,7 @@
 		8ECA8E3F28A64F7C00C8CBCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */; };
 		8ECA8E4128A64F7C00C8CBCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */; };
 		8ECA8E4428A64F7C00C8CBCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */; };
+		8ECFA0FE28C8CA6E00A8F0A9 /* AlarmResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECFA0FD28C8CA6E00A8F0A9 /* AlarmResult.swift */; };
 		8EE1921228BF4FC40044EA64 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8EE1921028BF4FC40044EA64 /* Snow.sks */; };
 		8EE1921328BF4FC40044EA64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE1921128BF4FC40044EA64 /* Assets.xcassets */; };
 		8EE1921528BF546D0044EA64 /* WeatherAnimationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */; };
@@ -41,6 +42,7 @@
 		8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		8ECA8E4328A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8ECA8E4528A64F7C00C8CBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8ECFA0FD28C8CA6E00A8F0A9 /* AlarmResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmResult.swift; sourceTree = "<group>"; };
 		8EE1921028BF4FC40044EA64 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		8EE1921128BF4FC40044EA64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAnimationScene.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				8EFD556128A8F7E600B2C726 /* Alert.swift */,
 				8E7E5CE128AA8DC2000C30B5 /* WeatherInformation.swift */,
 				8E7E5CE328AA8DE2000C30B5 /* ErrorMessage.swift */,
+				8ECFA0FD28C8CA6E00A8F0A9 /* AlarmResult.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				8EFD556628A9012700B2C726 /* SetLocationViewController.swift in Sources */,
 				8E7E5CE428AA8DE2000C30B5 /* ErrorMessage.swift in Sources */,
 				8EFD556028A8F7BC00B2C726 /* TimerStatus.swift in Sources */,
+				8ECFA0FE28C8CA6E00A8F0A9 /* AlarmResult.swift in Sources */,
 				8ECA8E3A28A64F7C00C8CBCC /* SceneDelegate.swift in Sources */,
 				8E7E5CE228AA8DC2000C30B5 /* WeatherInformation.swift in Sources */,
 				8EFD556228A8F7E600B2C726 /* Alert.swift in Sources */,

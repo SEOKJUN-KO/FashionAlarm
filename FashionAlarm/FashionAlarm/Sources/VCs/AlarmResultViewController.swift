@@ -34,13 +34,13 @@ class AlarmResultViewController: UIViewController {
 
 extension AlarmResultViewController {
     
-    private func saveAllInfo(weather: String , maxTmp: Int, minTmp: Int, recommend: String) { // 함수 인자 너무 많음 -> 구조체로 전달
+    private func saveAllInfo(weatherInformation: WeatherInformation, recommend: String) { // 함수 인자 너무 많음 -> 구조체로 전달
+        guard let weather = weatherInformation.weather.first else { return }
         let userDefaults = UserDefaults.standard
-        //    날짜, 날씨, 최대 기온, 최소 기온, 추천
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let current_date_string = formatter.string(from: Date())
-        let data: [String:Any] = ["date": current_date_string, "weather": weather, "maxTmp": maxTmp, "minTmp": minTmp, "recommend": recommend]
+        let data: [String:Any] = ["date": current_date_string, "weather": weather.description, "maxTmp": weatherInformation.temp.maxTemp, "minTmp": weatherInformation.temp.minTemp, "recommend": recommend]
         userDefaults.set( data, forKey: "FashionAllInfo" )
     }
     
@@ -131,12 +131,11 @@ extension AlarmResultViewController {
         }
         
         self.weatherDescriptionLabel.text = weather.description // 현재 날씨 라벨에 정보 표시
-//        self.tempLabel.text = "\(Int(weatherInformation.temp.temp - 273.15))℃" // 섭씨온도 변환
         self.minTempLabel.text = "최저: \(Int(weatherInformation.temp.minTemp - 273.15))℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
         self.maxTempLabel.text = "최고: \(Int(weatherInformation.temp.maxTemp - 273.15))℃" // 최고온도 섭씨온도 변환 후 라벨에 표시
         let recommend = recommendClothes( degree: (weatherInformation.temp.minTemp - 273.15 + weatherInformation.temp.maxTemp - 273.15)/2 )
         self.recommendClothesLabel.text = recommend
-        saveAllInfo(weather: weather.description, maxTmp: Int(weatherInformation.temp.minTemp - 273.15), minTmp: Int(weatherInformation.temp.maxTemp - 273.15), recommend: recommend)
+        saveAllInfo(weatherInformation: weatherInformation, recommend: recommend)
     }
     
     func showAlert(message: String) { // 에러시 alert 하는 함수
@@ -145,7 +144,7 @@ extension AlarmResultViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func recommendClothes(degree: Double) -> String { // enum 처리 -> enum 공부하기
+    private func recommendClothes(degree: Double) -> String { // enum 처리 -> enum 공부하기 || 질문 = 범위로 return 값을 정하는데 어떻게 enum으로?
         if( degree >= 28 ){ return "민소매, 반팔, 반바지, 짧은 치마, 린넨 옷"
         } else if( degree >= 23 ) { return "반팔, 얇은 셔츠, 반바지, 면바지"
         } else if( degree >= 20 ) { return "블라우스, 긴팔 티, 면바지, 슬랙스"
@@ -180,6 +179,7 @@ extension AlarmResultViewController {
     }
     
     private func chooseImgFromWeather(weather: String){ // 중복처리
+        
         if(weather.contains("맑음")){
             backgroundImg.image = UIImage(named: "맑음.jpeg")!
         }
