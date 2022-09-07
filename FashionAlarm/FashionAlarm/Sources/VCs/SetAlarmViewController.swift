@@ -82,7 +82,6 @@ class SetAlarmViewController: UIViewController {
     @IBAction func stopMusic(_ sender: Any) {
         self.offMusicBtn.isHidden = true
         audioPlayer?.volume = 0
-//        audioPlayer?.stop()
     }
 }
 
@@ -97,11 +96,9 @@ extension SetAlarmViewController {
         playMusic()
         audioPlayer?.volume = 0
         Timer.scheduledTimer(withTimeInterval: self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow, repeats: false) { (t) in
-            self.audioPlayer?.volume = 100
+            self.audioPlayer?.volume = 10
         }
-        self.alert = Alert(date: self.datePicker.date, isOn: self.iterSwitch.isOn)
         cancelButton.isHidden = false
-        userNotificationCenter.addNotificationRequest(by: alert!) // 알림을 userNotificationCenter에 추가
         self.iterSwitch.isHidden = true
         self.setLocationBtn.isHidden = true
         // 타이머를 설정하고 시작
@@ -113,27 +110,25 @@ extension SetAlarmViewController {
             // 타이머와 연동된 이벤트 handler 설정
             self.timer?.setEventHandler(handler: { [weak self] in
                 guard let self = self else { return }
-
+                
                 self.currentSeconds = Int(self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow)
                 // timer label 관련
                 let hour = self.currentSeconds / 3600
                 let minutes = (self.currentSeconds % 3600) / 60
                 let seconds = (self.currentSeconds % 3600) % 60
                 self.timerLabel.text = String(format: "%02d:%02d:%02d", hour, minutes, seconds)
-
+                
                 // progress bar 관련
                 self.progressView.progress = Float(self.currentSeconds) / Float(self.duration)
-
+                
                 // 시간 0초 되면 타이머 종료
                 if self.currentSeconds <= 0 {
-//                    self.audioPlayer?.volume = 100
-                    // 알람소리 -> iphonedev.wiki로 확인 가능
-//                    self.playMusic()
+                    self.offMusicBtn.isHidden = false
                     if(self.iterSwitch.isOn){
-                        Timer.scheduledTimer(withTimeInterval: 300, repeats: false) { (t) in
-                            self.audioPlayer?.volume = 100
+                        Timer.scheduledTimer(withTimeInterval: 30, repeats: false) { (t) in
+                            self.audioPlayer?.volume = 10
                         }
-                        self.selectedTime = self.calendar.date(byAdding: .minute, value: 5, to: Date()) ?? Date()
+                        self.selectedTime = self.calendar.date(byAdding: .second, value: 30, to: Date()) ?? Date()
                         self.currentSeconds = Int(self.selectedTime.timeIntervalSinceNow)
                     }
                     else{
@@ -146,8 +141,7 @@ extension SetAlarmViewController {
         }
     }
     
-    private func playMusic() {
-        self.offMusicBtn.isHidden = false
+    private func playMusic() { // 알람 노래 관련 설정
         guard let url = Bundle.main.url(forResource: "Morning Kiss", withExtension: "mp3") else { return }
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
@@ -159,8 +153,9 @@ extension SetAlarmViewController {
         }
     }
     
-    private func stopTimer() {
-        userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [alert!.id])
+    private func stopTimer() { // 타이머를 종료시키고
+        // UI 작업
+        self.offMusicBtn.isHidden = true
         self.iterSwitch.isHidden = false
         self.timerStatus = .end
         self.cancelButton.isHidden = true
@@ -172,7 +167,10 @@ extension SetAlarmViewController {
             self.datePicker.alpha = 1
         })
         self.startButton.isSelected = false
+        // 소리 끄기
         audioPlayer?.stop()
+        audioPlayer = nil
+        // 타이머 끄기
         self.timer?.cancel()
         self.timer = nil
     }
