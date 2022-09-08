@@ -19,8 +19,9 @@ class AlarmResultViewController: UIViewController {
     @IBOutlet weak var weatherStackView: UIStackView!
     @IBOutlet weak var recommendClothesLabel: UILabel!
     
-    var latitude: Double?
-    var longitude: Double?
+    var location: Location?
+    var weatherInformation: WeatherInformation?
+    var recommend: String?
     private let skView = SKView()
     
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class AlarmResultViewController: UIViewController {
         view.sendSubviewToBack(backgroundImg)
     }
     override func viewWillAppear(_ animated: Bool) {
-        loadAllInfo()
+        checkNeedChangeUI()
     }
 }
 
@@ -44,84 +45,80 @@ extension AlarmResultViewController {
         userDefaults.set( data, forKey: "FashionAllInfo" )
     }
     
-    private func loadAllInfo() {
+    private func checkNeedChangeUI() {
         let userDefaults = UserDefaults.standard // 유틸로 빼서 구조화 -> 코드 간결화하기
+        // 저장된 값이 없다. = 앱 사용이 처음이다.
         guard let data = userDefaults.object(forKey: "FashionAllInfo") as? [String: Any] else {
             getCoordinates()
             getCurrentWeather()
             return
-        } // 저장된 값이 없다. = 앱 사용이 처음이다.
+        }
         guard let date = data["date"] as? String else { return }
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let current_date_string = formatter.string(from: Date())
-        if( date != current_date_string ){ // 날짜가 다른 알람이 울려 정보 다시 얻어야함
+        // 날짜가 다른 알람이 울려 정보 다시 얻어야함
+        if( date != current_date_string ){
             getCoordinates()
             getCurrentWeather()
             return
         }
-        guard let weather = data["weather"] as? String else { return }
-        if(weather.contains("비") || weather.contains("눈")){
-            setupUI()
-        }
-        else if(self.view.subviews.contains(skView)){
-            skView.removeFromSuperview()
-        }
-        chooseImgFromWeather(weather: weather)
-        guard let maxTmp = data["maxTmp"] as? Int else { return }
-        guard let minTmp = data["minTmp"] as? Int else { return }
-        guard let recommend = data["recommend"] as? String else { return }
-        weatherStackView.isHidden = false
-        weatherDescriptionLabel.text = weather // 현재 날씨 라벨에 정보 표시
-        minTempLabel.text = "최저: \(maxTmp)℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
-        maxTempLabel.text = "최고: \(minTmp)℃" // 최고온도 섭씨온도 변환 후 라벨에 표시
-        recommendClothesLabel.text = recommend
+//        // 앱이 꺼졌다 켜졌을 때 -> weatherInformation & location이 지워짐
+//        if( recommendClothesLabel.text == ""){
+//            self.weatherInformation = WeatherInformation(
+//            configureView()
+//        }
     }
     
     
     private func getCoordinates() {
         let userDefaults = UserDefaults.standard
-        guard let data = userDefaults.object(forKey: "FashionAlarmCoordinates") as? [String: Double] else { return }
+        guard let data = userDefaults.object(forKey: "FashionAlarmCoordinates") as? [String: Double] else {
+            print("위치 설정 필요")
+            return }
         guard let lat = data["latitude"] else { return }
         guard let lon = data["longitude"] else { return }
-        latitude = lat
-        longitude = lon
         guard let address = userDefaults.object(forKey: "FashionAlarmAddress") as? String else { return }
-        self.cityNameLabel.text =  address
+        location = Location(address: address, latitude: lat, longitude: lon)
     }
     
     // 날씨 정보 받아오는 함수
     func getCurrentWeather() {
-        guard let lat = latitude else { return }
-        guard let lon = longitude else { return }
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&appid=ff922c126429116c4fc0db7be1ee99af&lang=kr") else { return }
+        guard let location = self.location else { return }
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(location.latitude)&lon=\(location.longitude)&appid=ff922c126429116c4fc0db7be1ee99af&lang=kr") else { return }
         //url 데이터 요청하는 부분은 rest api call 구조화 후 간결화 코드 공부하기
         let session = URLSession(configuration: .default)
         // url로 data 요청
         session.dataTask(with: url) { [weak self] data, response, error in // weak self 순환 참조 문제 해결
+            guard let self = self else { return }
             let successRange = (200..<300)  // 200에서 299까지 값을 갖을 수 있음
             // data를 받아오고, error가 없을 때 계속 진행
             guard let data = data, error == nil else { return }
             let decoder = JSONDecoder() // json 객체에서 Data 유형의 instance로 decoding하는 객체
             if let response = response as? HTTPURLResponse, successRange.contains(response.statusCode) {// 응답이 성공일
                 guard let weatherInformation = try? decoder.decode(WeatherInformation.self, from: data) else { return } // data를 WeatherInformation형태로 decoding
-                
                 DispatchQueue.main.async { // main thread에서 동작
-                    self?.weatherStackView.isHidden = false // 날씨 정보를 표시 해주는 스택뷰 보이게
-                    self?.configureView(weatherInformation: weatherInformation) // 타이틀에 정보 표시
+                    self.recommend = self.recommendClothes( degree: (weatherInformation.temp.minTemp - 273.15 + weatherInformation.temp.maxTemp - 273.15)/2 )
+                    self.weatherInformation = weatherInformation
+                    self.saveAllInfo(weatherInformation: weatherInformation, recommend: self.recommend!)
+                    self.configureView()
                 }
             }
             else {
                 guard let errorMesaage = try? decoder.decode(ErrorMessage.self, from: data) else { return } // 에러 메세지
                 DispatchQueue.main.async { // main thread에서 동작
-                    self?.showAlert(message: errorMesaage.message)
+                    self.showAlert(message: errorMesaage.message)
                 }
             }
         }.resume() // 작업 실행
     }
     
-    func configureView(weatherInformation: WeatherInformation) {
-        guard let weather = weatherInformation.weather.first else { return }
+    func configureView() {
+        guard let weather = self.weatherInformation?.weather.first else { return }
+        weatherStackView.isHidden = false
+        
+        self.cityNameLabel.text =  self.location!.address
+        
         chooseImgFromWeather(weather: weather.description)
         if(weather.description.contains("비") || weather.description.contains("눈")){
             setupUI()
@@ -129,13 +126,18 @@ extension AlarmResultViewController {
         else if(self.view.subviews.contains(skView)){
             skView.removeFromSuperview()
         }
-        
         self.weatherDescriptionLabel.text = weather.description // 현재 날씨 라벨에 정보 표시
-        self.minTempLabel.text = "최저: \(Int(weatherInformation.temp.minTemp - 273.15))℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
-        self.maxTempLabel.text = "최고: \(Int(weatherInformation.temp.maxTemp - 273.15))℃" // 최고온도 섭씨온도 변환 후 라벨에 표시
-        let recommend = recommendClothes( degree: (weatherInformation.temp.minTemp - 273.15 + weatherInformation.temp.maxTemp - 273.15)/2 )
+        self.minTempLabel.text = "최저: \(Int(self.weatherInformation!.temp.minTemp - 273.15))℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
+        self.maxTempLabel.text = "최고: \(Int(self.weatherInformation!.temp.maxTemp - 273.15))℃" // 최고온도 섭씨온도 변환 후 라벨에 표시
         self.recommendClothesLabel.text = recommend
-        saveAllInfo(weatherInformation: weatherInformation, recommend: recommend)
+        
+        if(weather.description.contains("비") || weather.description.contains("눈")){
+            setupUI()
+        }
+        else if(self.view.subviews.contains(skView)){
+            skView.removeFromSuperview()
+        }
+        chooseImgFromWeather(weather: weather.description)
     }
     
     func showAlert(message: String) { // 에러시 alert 하는 함수

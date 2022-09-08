@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct AlarmResult{
-    let weather: String
-    let maxTmp: Double
-    let minTmp: Double
-    let recommend: String
-    let location: Location
-}
-
 struct Location{
     let address: String
     let latitude: Double
