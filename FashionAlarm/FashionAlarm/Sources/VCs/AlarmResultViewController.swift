@@ -20,8 +20,7 @@ class AlarmResultViewController: UIViewController {
     @IBOutlet weak var recommendClothesLabel: UILabel!
     
     var location: Location?
-    var weatherInformation: WeatherInformation?
-    var recommend: String?
+    var alarmResultUI: AlarmResultUI?
     private let skView = SKView()
     
     override func viewDidLoad() {
@@ -35,13 +34,13 @@ class AlarmResultViewController: UIViewController {
 
 extension AlarmResultViewController {
     
-    private func saveAllInfo(weatherInformation: WeatherInformation, recommend: String) { // 함수 인자 너무 많음 -> 구조체로 전달
-        guard let weather = weatherInformation.weather.first else { return }
+    private func saveFashionAllInfo(alarmResultUI: AlarmResultUI) { // 함수 인자 너무 많음 -> 구조체로 전달
+        guard let alarmResultUI = self.alarmResultUI else { return }
         let userDefaults = UserDefaults.standard
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let current_date_string = formatter.string(from: Date())
-        let data: [String:Any] = ["date": current_date_string, "weather": weather.description, "maxTmp": weatherInformation.temp.maxTemp, "minTmp": weatherInformation.temp.minTemp, "recommend": recommend]
+        let data: [String:Any] = ["date": current_date_string, "weather": alarmResultUI.weather, "maxTmp": alarmResultUI.maxTmp, "minTmp": alarmResultUI.minTmp, "recommend": alarmResultUI.recommend]
         userDefaults.set( data, forKey: "FashionAllInfo" )
     }
     
@@ -63,19 +62,20 @@ extension AlarmResultViewController {
             getCurrentWeather()
             return
         }
-//        // 앱이 꺼졌다 켜졌을 때 -> weatherInformation & location이 지워짐
-//        if( recommendClothesLabel.text == ""){
-//            self.weatherInformation = WeatherInformation(
-//            configureView()
-//        }
+        // 앱이 꺼졌다 켜졌을 때 = 메모리에서 내려간 후 다시 올라 왔을 때 -> alarmResult & location이 지워짐
+        if( recommendClothesLabel.text == ""){
+            getCoordinates()
+            alarmResultUI = AlarmResultUI(weather: data["weather"] as! String, maxTmp: data["maxTmp"] as! Double, minTmp: data["minTmp"] as! Double, recommend: data["recommend"] as! String)
+            configureView()
+        }
     }
     
     
     private func getCoordinates() {
         let userDefaults = UserDefaults.standard
-        guard let data = userDefaults.object(forKey: "FashionAlarmCoordinates") as? [String: Double] else {
-            print("위치 설정 필요")
-            return }
+        guard let data = userDefaults.object(forKey: "FashionAlarmCoordinates") as? [String: Double] else { print("위치 설정 필요")
+            return
+        }
         guard let lat = data["latitude"] else { return }
         guard let lon = data["longitude"] else { return }
         guard let address = userDefaults.object(forKey: "FashionAlarmAddress") as? String else { return }
@@ -98,9 +98,10 @@ extension AlarmResultViewController {
             if let response = response as? HTTPURLResponse, successRange.contains(response.statusCode) {// 응답이 성공일
                 guard let weatherInformation = try? decoder.decode(WeatherInformation.self, from: data) else { return } // data를 WeatherInformation형태로 decoding
                 DispatchQueue.main.async { // main thread에서 동작
-                    self.recommend = self.recommendClothes( degree: (weatherInformation.temp.minTemp - 273.15 + weatherInformation.temp.maxTemp - 273.15)/2 )
-                    self.weatherInformation = weatherInformation
-                    self.saveAllInfo(weatherInformation: weatherInformation, recommend: self.recommend!)
+                    let recommend = self.recommendClothes( degree: (weatherInformation.temp.minTemp - 273.15 + weatherInformation.temp.maxTemp - 273.15)/2 )
+                    let weatherInfo = weatherInformation.weather.first
+                    self.alarmResultUI = AlarmResultUI(weather: weatherInfo!.description, maxTmp: weatherInformation.temp.maxTemp - 273.15, minTmp: weatherInformation.temp.minTemp - 273.15, recommend: recommend)
+                    self.saveFashionAllInfo(alarmResultUI: self.alarmResultUI!)
                     self.configureView()
                 }
             }
@@ -114,30 +115,23 @@ extension AlarmResultViewController {
     }
     
     func configureView() {
-        guard let weather = self.weatherInformation?.weather.first else { return }
+        guard let alarmResultUI = self.alarmResultUI else { return }
         weatherStackView.isHidden = false
         
         self.cityNameLabel.text =  self.location!.address
         
-        chooseImgFromWeather(weather: weather.description)
-        if(weather.description.contains("비") || weather.description.contains("눈")){
+        let weather = alarmResultUI.weather
+        chooseImgFromWeather(weather: weather)
+        if(weather.contains("비") || weather.contains("눈")){
             setupUI()
         }
         else if(self.view.subviews.contains(skView)){
             skView.removeFromSuperview()
         }
-        self.weatherDescriptionLabel.text = weather.description // 현재 날씨 라벨에 정보 표시
-        self.minTempLabel.text = "최저: \(Int(self.weatherInformation!.temp.minTemp - 273.15))℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
-        self.maxTempLabel.text = "최고: \(Int(self.weatherInformation!.temp.maxTemp - 273.15))℃" // 최고온도 섭씨온도 변환 후 라벨에 표시
-        self.recommendClothesLabel.text = recommend
-        
-        if(weather.description.contains("비") || weather.description.contains("눈")){
-            setupUI()
-        }
-        else if(self.view.subviews.contains(skView)){
-            skView.removeFromSuperview()
-        }
-        chooseImgFromWeather(weather: weather.description)
+        self.weatherDescriptionLabel.text = weather // 현재 날씨 라벨에 정보 표시
+        self.minTempLabel.text = "최저: \(Int(alarmResultUI.minTmp))℃" // 최저온도 섭씨온도 변환 후 라벨에 표시
+        self.maxTempLabel.text = "최고: \(Int(alarmResultUI.maxTmp))℃" // 최고온도 섭씨온도 변환 후 라벨에 표시
+        self.recommendClothesLabel.text = alarmResultUI.recommend
     }
     
     func showAlert(message: String) { // 에러시 alert 하는 함수
@@ -158,9 +152,7 @@ extension AlarmResultViewController {
     }
     
     private func setupUI(){
-        if( self.view.subviews.contains(skView) ){
-            return
-        }
+        if( self.view.subviews.contains(skView) ){ return }
         view.addSubview(skView) // 만약 부모를 지우면 -> 자식들도 지워짐: 메모리 수준
         skView.translatesAutoresizingMaskIntoConstraints = false
         skView.backgroundColor = .clear
