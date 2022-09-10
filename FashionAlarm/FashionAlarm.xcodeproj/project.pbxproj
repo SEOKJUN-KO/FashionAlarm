@@ -18,6 +18,7 @@
 		8ECA8E4128A64F7C00C8CBCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */; };
 		8ECA8E4428A64F7C00C8CBCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */; };
 		8ECFA0FE28C8CA6E00A8F0A9 /* AlarmResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECFA0FD28C8CA6E00A8F0A9 /* AlarmResult.swift */; };
+		8ECFA10228CCAAE200A8F0A9 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECFA10128CCAAE100A8F0A9 /* Storage.swift */; };
 		8EE1921228BF4FC40044EA64 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8EE1921028BF4FC40044EA64 /* Snow.sks */; };
 		8EE1921328BF4FC40044EA64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE1921128BF4FC40044EA64 /* Assets.xcassets */; };
 		8EE1921528BF546D0044EA64 /* WeatherAnimationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */; };
@@ -43,6 +44,7 @@
 		8ECA8E4328A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8ECA8E4528A64F7C00C8CBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ECFA0FD28C8CA6E00A8F0A9 /* AlarmResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmResult.swift; sourceTree = "<group>"; };
+		8ECFA10128CCAAE100A8F0A9 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		8EE1921028BF4FC40044EA64 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		8EE1921128BF4FC40044EA64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAnimationScene.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		8E0BD65128AE16EA0067B281 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8ECFA10028CCAAB600A8F0A9 /* Util */,
 				8E0BD65228AE16F40067B281 /* VCs */,
 				8E0BD65528AE185E0067B281 /* Collections */,
 				8E0BD65428AE17830067B281 /* Classes */,
@@ -139,6 +142,14 @@
 				8EE1921628C226B40044EA64 /* Rain.sks */,
 			);
 			path = FashionAlarm;
+			sourceTree = "<group>";
+		};
+		8ECFA10028CCAAB600A8F0A9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8ECFA10128CCAAE100A8F0A9 /* Storage.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 				8EFD555E28A8F75500B2C726 /* SetAlarmViewController.swift in Sources */,
 				8EFD556428A8F88400B2C726 /* UNUserNotificationCenter.swift in Sources */,
 				8EE1921528BF546D0044EA64 /* WeatherAnimationScene.swift in Sources */,
+				8ECFA10228CCAAE200A8F0A9 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
