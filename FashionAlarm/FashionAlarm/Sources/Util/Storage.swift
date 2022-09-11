@@ -16,7 +16,7 @@ class Storage {
     }
     
     func getLocation(key: String) -> [String: Double]{
-        guard let data = store.object(forKey: "FashionAlarmCoordinates") as? [String: Double] else { return [String:Double]() }
+        guard let data = store.object(forKey: key) as? [String: Double] else { return [String:Double]() }
         return data
     }
     
@@ -25,7 +25,16 @@ class Storage {
     }
     
     func getAddress(key: String) -> String{
-        guard let address = store.object(forKey: "FashionAlarmAddress") as? String else { return "" }
+        guard let address = store.object(forKey: key) as? String else { return "" }
         return address
+    }
+    
+    func setAlarmResultUI(key: String, data: [String: Any]) {
+        store.set(data, forKey: key)
+    }
+    
+    func getAlarmResultUI(key: String) -> [String:Any]?{
+        guard let data = store.object(forKey: key) as? [String:Any] else { return nil }
+        return data
     }
 }

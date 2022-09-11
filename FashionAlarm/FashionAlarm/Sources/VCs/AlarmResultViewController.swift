@@ -22,6 +22,7 @@ class AlarmResultViewController: UIViewController {
     var location: Location?
     var alarmResultUI: AlarmResultUI?
     private let skView = SKView()
+    let storage = Storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,18 +37,16 @@ extension AlarmResultViewController {
     
     private func saveFashionAllInfo(alarmResultUI: AlarmResultUI) { // 함수 인자 너무 많음 -> 구조체로 전달
         guard let alarmResultUI = self.alarmResultUI else { return }
-        let userDefaults = UserDefaults.standard
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let current_date_string = formatter.string(from: Date())
         let data: [String:Any] = ["date": current_date_string, "weather": alarmResultUI.weather, "maxTmp": alarmResultUI.maxTmp, "minTmp": alarmResultUI.minTmp, "recommend": alarmResultUI.recommend]
-        userDefaults.set( data, forKey: "FashionAllInfo" )
+        storage.setAlarmResultUI(key: "FashionAllInfo", data: data)
     }
     
     private func checkNeedChangeUI() {
-        let userDefaults = UserDefaults.standard // 유틸로 빼서 구조화 -> 코드 간결화하기
         // 저장된 값이 없다. = 앱 사용이 처음이다.
-        guard let data = userDefaults.object(forKey: "FashionAllInfo") as? [String: Any] else {
+        guard let data = storage.getAlarmResultUI(key: "FashionAllInfo") else {
             getCoordinates()
             getCurrentWeather()
             return
@@ -72,14 +71,13 @@ extension AlarmResultViewController {
     
     
     private func getCoordinates() {
-        let userDefaults = UserDefaults.standard
-        guard let data = userDefaults.object(forKey: "FashionAlarmCoordinates") as? [String: Double] else { print("위치 설정 필요")
+        let address = storage.getAddress(key: "FashionAlarmAddress")
+        if ( address == "" ) {
+            print("위치 설정 필요")
             return
         }
-        guard let lat = data["latitude"] else { return }
-        guard let lon = data["longitude"] else { return }
-        guard let address = userDefaults.object(forKey: "FashionAlarmAddress") as? String else { return }
-        location = Location(address: address, latitude: lat, longitude: lon)
+        let data = storage.getLocation(key: "FashionAlarmCoordinates")
+        location = Location(address: address, latitude: data["latitude"]!, longitude: data["longitude"]!)
     }
     
     // 날씨 정보 받아오는 함수
