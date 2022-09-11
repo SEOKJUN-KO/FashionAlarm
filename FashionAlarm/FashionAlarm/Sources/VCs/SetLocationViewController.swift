@@ -18,6 +18,8 @@ class SetLocationViewController: UIViewController {
     var latitude: Double = 0.0
     var longitude: Double = 0.0
     
+    let storage = Storage()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.isScrollEnabled = false
@@ -50,22 +52,18 @@ class SetLocationViewController: UIViewController {
 extension SetLocationViewController {
     private func saveCoordinates(latitude: Double, longitude: Double, address: String){
         let data = [ "latitude": latitude, "longitude": longitude ]
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(data, forKey: "FashionAlarmCoordinates")
-        userDefaults.set(address, forKey: "FashionAlarmAddress")
+        storage.setLocation(key: "FashionAlarmCoordinates", data: data)
+        storage.setAddress(key: "FashionAlarmAddress", data: address)
+
     }
     
     private func loadCoordinates(){
-        let userDefaults = UserDefaults.standard
-        guard let data = userDefaults.object(forKey: "FashionAlarmCoordinates") as? [String: Double] else { return }
-        guard let lat = data["latitude"] else { return }
-        guard let lon = data["longitude"] else { return }
-        latitude = lat
-        longitude = lon
-        guard let address = userDefaults.object(forKey: "FashionAlarmAddress") as? String else { return }
+        let address = storage.getAddress(key: "FashionAlarmAddress")
+        if( address == "") { return }
+        let coordinates = storage.getLocation(key: "FashionAlarmCoordinates")
         detailResult.isHidden = false
         self.detailResult.text = address
-        self.mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: lon), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.001)), animated: false)
+        self.mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: coordinates["latitude"]!, longitude: coordinates["longitude"]!), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.001)), animated: false)
     }
 }
 
