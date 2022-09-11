@@ -54,7 +54,6 @@ extension SetLocationViewController {
         let data = [ "latitude": latitude, "longitude": longitude ]
         storage.setLocation(key: "FashionAlarmCoordinates", data: data)
         storage.setAddress(key: "FashionAlarmAddress", data: address)
-
     }
     
     private func loadCoordinates(){
