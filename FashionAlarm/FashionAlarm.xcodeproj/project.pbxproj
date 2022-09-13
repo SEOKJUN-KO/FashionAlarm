@@ -81,7 +81,6 @@
 		8E0BD65128AE16EA0067B281 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8ECFA10328CDB5F500A8F0A9 /* Service */,
 				8ECFA10028CCAAB600A8F0A9 /* Util */,
 				8E0BD65228AE16F40067B281 /* VCs */,
 				8E0BD65528AE185E0067B281 /* Collections */,
@@ -151,21 +150,6 @@
 				8ECFA10128CCAAE100A8F0A9 /* Storage.swift */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		8ECFA10328CDB5F500A8F0A9 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				8ECFA10428CDB60F00A8F0A9 /* API */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		8ECFA10428CDB60F00A8F0A9 /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
