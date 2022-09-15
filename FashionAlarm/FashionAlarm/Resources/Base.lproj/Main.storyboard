@@ -143,7 +143,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Kg-r6-UbH"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9GP-cZ-Zsc" firstAttribute="leading" secondItem="4Kg-r6-UbH" secondAttribute="leading" constant="48" id="2VU-Qd-8Zm"/>
                             <constraint firstItem="pGx-bp-oqd" firstAttribute="top" secondItem="2Vj-qh-IZu" secondAttribute="bottom" constant="50" id="7OE-of-tqR"/>
@@ -329,7 +329,7 @@ ex) 용담2동 -&gt; 용담이동  - 행정 구역 단위로 적어주세요
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TJV-ne-dfU"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="TJV-ne-dfU" firstAttribute="trailing" secondItem="xoY-zo-KPv" secondAttribute="trailing" constant="20" id="39c-zW-lET"/>
                             <constraint firstItem="TJV-ne-dfU" firstAttribute="trailing" secondItem="fBf-zM-zlg" secondAttribute="trailing" constant="24" id="H3b-lY-JGp"/>

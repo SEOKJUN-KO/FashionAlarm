@@ -100,6 +100,7 @@ extension SetAlarmViewController {
             self.audioPlayer?.volume = 100
         }
         self.alert = Alert(date: self.datePicker.date, isOn: self.iterSwitch.isOn)
+        // 타이머 시작 후 조작 UI 처리 함수로 빼주기
         cancelButton.isHidden = false
         userNotificationCenter.addNotificationRequest(by: alert!) // 알림을 userNotificationCenter에 추가
         self.iterSwitch.isHidden = true
@@ -113,7 +114,7 @@ extension SetAlarmViewController {
             // 타이머와 연동된 이벤트 handler 설정
             self.timer?.setEventHandler(handler: { [weak self] in
                 guard let self = self else { return }
-
+                // UI 부분 함수로 빼주기
                 self.currentSeconds = Int(self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow)
                 // timer label 관련
                 let hour = self.currentSeconds / 3600
@@ -123,8 +124,9 @@ extension SetAlarmViewController {
 
                 // progress bar 관련
                 self.progressView.progress = Float(self.currentSeconds) / Float(self.duration)
+                // ----------
 
-                // 시간 0초 되면 타이머 종료
+                // 시간 0초 되면 타이머 종료 -> 함수로 빼주기
                 if self.currentSeconds <= 0 {
 //                    self.audioPlayer?.volume = 100
                     // 알람소리 -> iphonedev.wiki로 확인 가능

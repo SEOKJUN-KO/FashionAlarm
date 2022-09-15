@@ -41,6 +41,8 @@ extension AlarmResultViewController {
         formatter.dateFormat = "yyyy-MM-dd"
         let current_date_string = formatter.string(from: Date())
         let data: [String:Any] = ["date": current_date_string, "weather": alarmResultUI.weather, "maxTmp": alarmResultUI.maxTmp, "minTmp": alarmResultUI.minTmp, "recommend": alarmResultUI.recommend]
+        // Parsing 부분 구조화 하면 간결화 해짐. 해도 안해도 무관
+        // Class로 Parsing으로 만들어
         storage.setAlarmResultUI(key: "FashionAllInfo", data: data)
     }
     
@@ -138,7 +140,8 @@ extension AlarmResultViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func recommendClothes(degree: Double) -> String { // enum 처리 -> enum 공부하기 || 질문 = 범위로 return 값을 정하는데 어떻게 enum으로?
+    private func recommendClothes(degree: Double) -> String { // return을 enum 처리 -> enum 공부하기
+        // 범위는 enum처리 아님
         if( degree >= 28 ){ return "민소매, 반팔, 반바지, 짧은 치마, 린넨 옷"
         } else if( degree >= 23 ) { return "반팔, 얇은 셔츠, 반바지, 면바지"
         } else if( degree >= 20 ) { return "블라우스, 긴팔 티, 면바지, 슬랙스"
@@ -170,7 +173,7 @@ extension AlarmResultViewController {
         skView.presentScene(spriteKitScene)
     }
     
-    private func chooseImgFromWeather(weather: String){ // 중복처리
+    private func chooseImgFromWeather(weather: String){ // 중복처리 -> for 문으로 배열에 맑음, 구름, 비, 눈 넣고
         
         if(weather.contains("맑음")){
             backgroundImg.image = UIImage(named: "맑음.jpeg")!
