@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8E0EBD4E28B8970700C30D94 /* Morning-Kiss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E0EBD4D28B8970700C30D94 /* Morning-Kiss.mp3 */; };
 		8E0EBD5628B8A07400C30D94 /* Morning Kiss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8E0EBD5528B8A07400C30D94 /* Morning Kiss.mp3 */; };
+		8E714F9A28DADA2900728F74 /* URLSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E714F9928DADA2900728F74 /* URLSessionManager.swift */; };
 		8E7E5CE028AA8D81000C30B5 /* AlarmResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E5CDF28AA8D81000C30B5 /* AlarmResultViewController.swift */; };
 		8E7E5CE228AA8DC2000C30B5 /* WeatherInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E5CE128AA8DC2000C30B5 /* WeatherInformation.swift */; };
 		8E7E5CE428AA8DE2000C30B5 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7E5CE328AA8DE2000C30B5 /* ErrorMessage.swift */; };
@@ -19,6 +20,7 @@
 		8ECA8E4428A64F7C00C8CBCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA8E4228A64F7C00C8CBCC /* LaunchScreen.storyboard */; };
 		8ECFA0FE28C8CA6E00A8F0A9 /* AlarmResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECFA0FD28C8CA6E00A8F0A9 /* AlarmResult.swift */; };
 		8ECFA10228CCAAE200A8F0A9 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECFA10128CCAAE100A8F0A9 /* Storage.swift */; };
+		8EE0072828D484950070646C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE0072728D484950070646C /* Constants.swift */; };
 		8EE1921228BF4FC40044EA64 /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8EE1921028BF4FC40044EA64 /* Snow.sks */; };
 		8EE1921328BF4FC40044EA64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE1921128BF4FC40044EA64 /* Assets.xcassets */; };
 		8EE1921528BF546D0044EA64 /* WeatherAnimationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */; };
@@ -33,6 +35,7 @@
 /* Begin PBXFileReference section */
 		8E0EBD4D28B8970700C30D94 /* Morning-Kiss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Morning-Kiss.mp3"; sourceTree = "<group>"; };
 		8E0EBD5528B8A07400C30D94 /* Morning Kiss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Morning Kiss.mp3"; sourceTree = "<group>"; };
+		8E714F9928DADA2900728F74 /* URLSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionManager.swift; sourceTree = "<group>"; };
 		8E7E5CDC28AA8CF8000C30B5 /* FashionAlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FashionAlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7E5CDF28AA8D81000C30B5 /* AlarmResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmResultViewController.swift; sourceTree = "<group>"; };
 		8E7E5CE128AA8DC2000C30B5 /* WeatherInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInformation.swift; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 		8ECA8E4528A64F7C00C8CBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ECFA0FD28C8CA6E00A8F0A9 /* AlarmResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmResult.swift; sourceTree = "<group>"; };
 		8ECFA10128CCAAE100A8F0A9 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		8EE0072728D484950070646C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8EE1921028BF4FC40044EA64 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
 		8EE1921128BF4FC40044EA64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAnimationScene.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 		8E0BD65128AE16EA0067B281 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8E714F9828DAD42F00728F74 /* API */,
 				8ECFA10028CCAAB600A8F0A9 /* Util */,
 				8E0BD65228AE16F40067B281 /* VCs */,
 				8E0BD65528AE185E0067B281 /* Collections */,
@@ -119,6 +124,14 @@
 			path = Collections;
 			sourceTree = "<group>";
 		};
+		8E714F9828DAD42F00728F74 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8E714F9928DADA2900728F74 /* URLSessionManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		8ECA8E2B28A64F7C00C8CBCC = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				8ECFA10128CCAAE100A8F0A9 /* Storage.swift */,
+				8EE0072728D484950070646C /* Constants.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -237,8 +251,10 @@
 				8E7E5CE228AA8DC2000C30B5 /* WeatherInformation.swift in Sources */,
 				8EFD556228A8F7E600B2C726 /* Alert.swift in Sources */,
 				8E7E5CE028AA8D81000C30B5 /* AlarmResultViewController.swift in Sources */,
+				8E714F9A28DADA2900728F74 /* URLSessionManager.swift in Sources */,
 				8EFD555E28A8F75500B2C726 /* SetAlarmViewController.swift in Sources */,
 				8EFD556428A8F88400B2C726 /* UNUserNotificationCenter.swift in Sources */,
+				8EE0072828D484950070646C /* Constants.swift in Sources */,
 				8EE1921528BF546D0044EA64 /* WeatherAnimationScene.swift in Sources */,
 				8ECFA10228CCAAE200A8F0A9 /* Storage.swift in Sources */,
 			);
