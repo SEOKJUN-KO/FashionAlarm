@@ -84,34 +84,41 @@ extension AlarmResultViewController {
     
     // 날씨 정보 받아오는 함수
     func getCurrentWeather() {
-        guard let location = self.location else { return }
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(location.latitude)&lon=\(location.longitude)&appid=ff922c126429116c4fc0db7be1ee99af&lang=kr") else { return }
-        //url 데이터 요청하는 부분은 rest api call 구조화 후 간결화 코드 공부하기
-        let session = URLSession(configuration: .default)
-        // url로 data 요청
-        session.dataTask(with: url) { [weak self] data, response, error in // weak self 순환 참조 문제 해결
-            guard let self = self else { return }
-            let successRange = (200..<300)  // 200에서 299까지 값을 갖을 수 있음
-            // data를 받아오고, error가 없을 때 계속 진행
-            guard let data = data, error == nil else { return }
-            let decoder = JSONDecoder() // json 객체에서 Data 유형의 instance로 decoding하는 객체
-            if let response = response as? HTTPURLResponse, successRange.contains(response.statusCode) {// 응답이 성공일
-                guard let weatherInformation = try? decoder.decode(WeatherInformation.self, from: data) else { return } // data를 WeatherInformation형태로 decoding
-                DispatchQueue.main.async { // main thread에서 동작
-                    let recommend = self.recommendClothes( degree: (weatherInformation.temp.minTemp - 273.15 + weatherInformation.temp.maxTemp - 273.15)/2 )
-                    let weatherInfo = weatherInformation.weather.first
-                    self.alarmResultUI = AlarmResultUI(weather: weatherInfo!.description, maxTmp: weatherInformation.temp.maxTemp - 273.15, minTmp: weatherInformation.temp.minTemp - 273.15, recommend: recommend)
-                    self.saveFashionAllInfo(alarmResultUI: self.alarmResultUI!)
-                    self.configureView()
-                }
-            }
-            else {
-                guard let errorMesaage = try? decoder.decode(ErrorMessage.self, from: data) else { return } // 에러 메세지
-                DispatchQueue.main.async { // main thread에서 동작
-                    self.showAlert(message: errorMesaage.message)
-                }
-            }
-        }.resume() // 작업 실행
+        let queryParam: [String: String] = ["lat": String(location!.latitude), "lon": String(location!.longitude), "appid": API.APP_ID, "lang": "kr"]
+        do {
+            URLSessionManager
+                .shared
+                .session
+                .dataTask(with: try WeatherRouter(weatherRouterInit: .getWeather(query: queryParam)).asURLRequest()) { [weak self] data, response, error in // weak self 순환 참조 문제 해결
+                    guard let self = self else { return }
+                    let successRange = (200..<300)  // 200에서 299까지 값을 갖을 수 있음
+                    // data를 받아오고, error가 없을 때 계속 진행
+                    guard let data = data, error == nil else { return }
+                    let decoder = JSONDecoder() // json 객체에서 Data 유형의 instance로 decoding하는 객체
+                    if let response = response as? HTTPURLResponse, successRange.contains(response.statusCode) {// 응답이 성공일 때
+                        guard let weatherInformation = try? decoder.decode(WeatherInformation.self, from: data) else { return } // data를 WeatherInformation형태로 decoding
+                        DispatchQueue.main.async { // main thread에서 동작
+                            self.makeAlarmResultUI(weatherInformation: weatherInformation)
+                            self.saveFashionAllInfo(alarmResultUI: self.alarmResultUI!)
+                            self.configureView()
+                        }
+                    }
+                    else {
+                        guard let errorMesaage = try? decoder.decode(ErrorMessage.self, from: data) else { return } // 에러 메세지
+                        DispatchQueue.main.async { // main thread에서 동작
+                            self.showAlert(message: errorMesaage.message)
+                        }
+                    }
+                }.resume()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func makeAlarmResultUI(weatherInformation: WeatherInformation){
+        let recommend = self.recommendClothes( degree: (weatherInformation.temp.minTemp - 273.15 + weatherInformation.temp.maxTemp - 273.15)/2 )
+        let weatherInfo = weatherInformation.weather.first
+        self.alarmResultUI = AlarmResultUI(weather: weatherInfo!.description, maxTmp: weatherInformation.temp.maxTemp - 273.15, minTmp: weatherInformation.temp.minTemp - 273.15, recommend: recommend)
     }
     
     func configureView() {
