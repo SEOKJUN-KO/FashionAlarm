@@ -47,6 +47,7 @@ extension AlarmResultViewController {
     }
     
     private func checkNeedChangeUI() {
+        guard let locationData = getCoordinates() else { return }
         // 저장된 값이 없다. = 앱 사용이 처음이다.
         guard let data = storage.getAlarmResultUI(key: "FashionAllInfo") else {
             getCoordinates()
@@ -72,14 +73,18 @@ extension AlarmResultViewController {
     }
     
     
-    private func getCoordinates() {
+    private func getCoordinates() -> Bool? {
         let address = storage.getAddress(key: "FashionAlarmAddress")
         if ( address == "" ) {
-            print("위치 설정 필요")
-            return
+            let alert = UIAlertController(title: "위치를 설정하셔야합니다.", message: "", preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alert.addAction(confirm)
+            present(alert, animated: false) // is discouraged. 해결법 찾기
+            return nil
         }
         let data = storage.getLocation(key: "FashionAlarmCoordinates")
         location = Location(address: address, latitude: data["latitude"]!, longitude: data["longitude"]!)
+        return true
     }
     
     // 날씨 정보 받아오는 함수
