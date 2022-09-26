@@ -22,7 +22,7 @@ class SetAlarmViewController: UIViewController {
     
     // 데이트 피커 타이머 초기화가 1분이기 떄문에 60초로
     var duration = 60
-    var timerStatus: TimerStatus = .end // 타이머의 초기값
+//    var timerStatus: TimerStatus = .end // 타이머의 초기값
     var currentSeconds = 0 // 현재 카운트 다운되고 있는 시간을 초로 저장하는 프로퍼티
     var timer: DispatchSourceTimer? // 타이머
     var audioPlayer: AVAudioPlayer?
@@ -43,40 +43,24 @@ class SetAlarmViewController: UIViewController {
     }
     
     @IBAction func tapCancelButton(_ sender: UIButton) {
-        switch self.timerStatus {
-        case .start:
-            self.stopTimer()
-            self.timerStatus = .end
-        default:
-            break
-        }
+        self.stopTimer()
     }
     
     // 시작, 재개 버튼 클릭 시
     @IBAction func tapStartButton(_ sender: UIButton) {
         // 타이머에 해당하는 시간을 초단위로 변환
-        
-        switch self.timerStatus {
-        case .end:
-            // 타이머 시작 시
-            self.timerStatus = .start
-            self.selectedTime = self.datePicker.date
-            if ( Int(self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow) <= 0 ){
-                self.selectedTime = calendar.date(byAdding: .hour, value: 24, to: self.datePicker.date) ?? Date()
-            }
-            UIView.animate(withDuration: 0.5, animations: {
-                self.timerLabel.alpha = 1
-                self.progressView.alpha = 1
-                self.datePicker.alpha = 0
-            })
-            self.startButton.isHidden = true
-            self.cancelButton.isEnabled = true
-            self.startTimer()
-            //
-        case .start:
-            // 타이머 시작모드에서 일기정지버튼 누를 시
-            self.startButton.isHidden = true
+        self.selectedTime = self.datePicker.date
+        if ( Int(self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow) <= 0 ){
+            self.selectedTime = calendar.date(byAdding: .hour, value: 24, to: self.datePicker.date) ?? Date()
         }
+        UIView.animate(withDuration: 0.5, animations: {
+            self.timerLabel.alpha = 1
+            self.progressView.alpha = 1
+            self.datePicker.alpha = 0
+        })
+        self.startButton.isHidden = true
+        self.cancelButton.isEnabled = true
+        self.startTimer()
     }
     
     @IBAction func stopMusic(_ sender: Any) {
@@ -173,9 +157,8 @@ extension SetAlarmViewController {
     
     private func stopTimer() {
 //        userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [alert!.id])
-        self.offMusicBtn.isHidden = false
+        self.offMusicBtn.isHidden = true
         self.iterSwitch.isHidden = false
-        self.timerStatus = .end
         self.cancelButton.isHidden = true
         self.startButton.isHidden = false
         self.setLocationBtn.isHidden = false
