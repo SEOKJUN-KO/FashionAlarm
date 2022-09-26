@@ -92,7 +92,7 @@ extension SetAlarmViewController {
         self.selectedTime = datePikcer.date
     }
     
-    private func startTimer() {
+    private func startTimer() { // 타이머 끝나고 노래 소리 커짐 o | 홈화면에서 커짐
         rightAfterTimerOn()
         // 타이머를 설정하고 시작
         if self.timer == nil {
@@ -173,6 +173,7 @@ extension SetAlarmViewController {
     
     private func stopTimer() {
 //        userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [alert!.id])
+        self.offMusicBtn.isHidden = false
         self.iterSwitch.isHidden = false
         self.timerStatus = .end
         self.cancelButton.isHidden = true
