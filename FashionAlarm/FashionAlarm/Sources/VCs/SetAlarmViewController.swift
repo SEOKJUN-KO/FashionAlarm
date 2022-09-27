@@ -117,9 +117,12 @@ extension SetAlarmViewController {
         
         playMusic()
         audioPlayer?.volume = 0
-        Timer.scheduledTimer(withTimeInterval: self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow, repeats: false) { (t) in
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { (t) in
             self.audioPlayer?.volume = 100
         }
+        //        Timer.scheduledTimer(withTimeInterval: self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow, repeats: false) { (t) in
+        //            self.audioPlayer?.volume = 100
+        //        }
         // self.alert = Alert(date: self.datePicker.date, isOn: self.iterSwitch.isOn)
         // 타이머 시작 후 조작 UI 처리 함수로 빼주기
         // userNotificationCenter.addNotificationRequest(by: alert!) // 알림을 userNotificationCenter에 추가
@@ -145,6 +148,13 @@ extension SetAlarmViewController {
     
     private func playMusic() {
         guard let url = Bundle.main.url(forResource: "Morning Kiss", withExtension: "mp3") else { return }
+        // Audio Session 설정
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playback, mode: .default, options: [])
+        } catch let error as NSError {
+            print("audioSession 설정 오류 : \(error.localizedDescription)")
+        }
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.prepareToPlay()
