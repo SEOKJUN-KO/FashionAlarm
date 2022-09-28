@@ -117,19 +117,19 @@ extension SetAlarmViewController {
         
         playMusic()
         audioPlayer?.volume = 0
-        Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { (t) in
+//        Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { (t) in
+//            self.audioPlayer?.volume = 100
+//        }
+        Timer.scheduledTimer(withTimeInterval: self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow, repeats: false) { (t) in
             self.audioPlayer?.volume = 100
         }
-        //        Timer.scheduledTimer(withTimeInterval: self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow, repeats: false) { (t) in
-        //            self.audioPlayer?.volume = 100
-        //        }
         // self.alert = Alert(date: self.datePicker.date, isOn: self.iterSwitch.isOn)
         // 타이머 시작 후 조작 UI 처리 함수로 빼주기
         // userNotificationCenter.addNotificationRequest(by: alert!) // 알림을 userNotificationCenter에 추가
     }
     
     private func doWhenTimerEnd(){
-        // self.audioPlayer?.volume = 100
+         self.audioPlayer?.volume = 100
         // 알람소리 -> iphonedev.wiki로 확인 가능
         // self.playMusic()
         offMusicBtn.isHidden = false
