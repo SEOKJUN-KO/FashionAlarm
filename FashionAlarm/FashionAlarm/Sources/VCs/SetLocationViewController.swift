@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class SetLocationViewController: UIViewController {
+class SetLocationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var detailResult: UILabel!
@@ -23,18 +23,32 @@ class SetLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.isScrollEnabled = false
+        locationTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadCoordinates()
     }
     
-    @IBAction func forwardGeoCoding(_ sender: Any) {
+    @IBAction func setLocation(_ sender: Any) {
+        forwardGeocoding()
+    }
+}
+
+extension SetLocationViewController {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        forwardGeocoding()
+        return false
+    }
+    
+    private func forwardGeocoding(){
         guard let address = locationTextField.text else { return }
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address) { placemarks, error in
             guard let placemark = placemarks?.first else {
                 self.detailResult.text = "지역 검색 결과가 없습니다."
+                self.locationTextField.text = ""
                 self.detailResult.isHidden = false
                 return
             }
@@ -47,9 +61,11 @@ class SetLocationViewController: UIViewController {
             self.mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: lon), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.001)), animated: false)
         }
     }
-}
-
-extension SetLocationViewController {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    } // 유저가 빈 화면을 터치하면 키보드나 피커가 다시 내려감
+    
     private func saveCoordinates(latitude: Double, longitude: Double, address: String){
         let data = [ "latitude": latitude, "longitude": longitude ]
         storage.setLocation(key: "FashionAlarmCoordinates", data: data)
