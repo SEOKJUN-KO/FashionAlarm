@@ -45,14 +45,14 @@
 		8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8ECA8E3E28A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
+		8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8ECA8E4328A64F7C00C8CBCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8ECA8E4528A64F7C00C8CBCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8ECFA0FD28C8CA6E00A8F0A9 /* AlarmResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmResult.swift; sourceTree = "<group>"; };
 		8ECFA10128CCAAE100A8F0A9 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		8EE0072728D484950070646C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8EE1921028BF4FC40044EA64 /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
-		8EE1921128BF4FC40044EA64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8EE1921128BF4FC40044EA64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAnimationScene.swift; sourceTree = "<group>"; };
 		8EE1921628C226B40044EA64 /* Rain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rain.sks; sourceTree = "<group>"; };
 		8EFD555D28A8F75500B2C726 /* SetAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +76,8 @@
 		8E0BD65028AE16E10067B281 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8EE1921128BF4FC40044EA64 /* Assets.xcassets */,
+				8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */,
 				8ECA8E3728A64F7C00C8CBCC /* AppDelegate.swift */,
 				8ECA8E3928A64F7C00C8CBCC /* SceneDelegate.swift */,
 				8ECA8E3D28A64F7C00C8CBCC /* Main.storyboard */,
@@ -87,6 +89,7 @@
 		8E0BD65128AE16EA0067B281 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8EACD1C828EC52BC0038B479 /* SpriteKit */,
 				8E714F9828DAD42F00728F74 /* API */,
 				8ECFA10028CCAAB600A8F0A9 /* Util */,
 				8E0BD65228AE16F40067B281 /* VCs */,
@@ -135,6 +138,16 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		8EACD1C828EC52BC0038B479 /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				8EE1921028BF4FC40044EA64 /* Snow.sks */,
+				8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */,
+				8EE1921628C226B40044EA64 /* Rain.sks */,
+			);
+			path = SpriteKit;
+			sourceTree = "<group>";
+		};
 		8ECA8E2B28A64F7C00C8CBCC = {
 			isa = PBXGroup;
 			children = (
@@ -151,11 +164,6 @@
 				8E0BD65028AE16E10067B281 /* Resources */,
 				8E0BD65128AE16EA0067B281 /* Sources */,
 				8ECA8E4528A64F7C00C8CBCC /* Info.plist */,
-				8ECA8E4028A64F7C00C8CBCC /* Assets.xcassets */,
-				8EE1921028BF4FC40044EA64 /* Snow.sks */,
-				8EE1921128BF4FC40044EA64 /* Assets.xcassets */,
-				8EE1921428BF546D0044EA64 /* WeatherAnimationScene.swift */,
-				8EE1921628C226B40044EA64 /* Rain.sks */,
 			);
 			path = FashionAlarm;
 			sourceTree = "<group>";
@@ -410,6 +418,7 @@
 				DEVELOPMENT_TEAM = CT6NFX8K3K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FashionAlarm/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Today's Pick";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -438,6 +447,7 @@
 				DEVELOPMENT_TEAM = CT6NFX8K3K;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FashionAlarm/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Today's Pick";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
