@@ -12,6 +12,7 @@ import UserNotifications
 class SetAlarmViewController: UIViewController {
     
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var snoozeLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var cancelButton: UIButton!
@@ -114,7 +115,11 @@ extension SetAlarmViewController {
         cancelButton.isHidden = false
         iterSwitch.isHidden = true
         setLocationBtn.isHidden = true
-        
+        if(iterSwitch.isOn){
+            snoozeLabel.text = "스누즈 On"
+        }else{
+            snoozeLabel.text = "스누즈 Off"
+        }
         playMusic()
         audioPlayer?.volume = 0
 //        Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { (t) in
@@ -172,6 +177,7 @@ extension SetAlarmViewController {
         self.cancelButton.isHidden = true
         self.startButton.isHidden = false
         self.setLocationBtn.isHidden = false
+        snoozeLabel.text = "스누즈"
         UIView.animate(withDuration: 0.5, animations: {
             self.timerLabel.alpha = 0
             self.progressView.alpha = 0

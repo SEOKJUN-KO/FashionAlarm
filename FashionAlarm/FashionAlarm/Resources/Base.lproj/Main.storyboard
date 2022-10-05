@@ -172,6 +172,7 @@
                         <outlet property="offMusicBtn" destination="pGx-bp-oqd" id="NE8-2h-Mt1"/>
                         <outlet property="progressView" destination="9GP-cZ-Zsc" id="7Zc-Zl-Ehm"/>
                         <outlet property="setLocationBtn" destination="PM2-AK-ISx" id="7kn-wD-Q0M"/>
+                        <outlet property="snoozeLabel" destination="Pwc-eu-e00" id="kkb-Ws-aK2"/>
                         <outlet property="startButton" destination="8qw-VG-tmV" id="Kyt-qL-HCy"/>
                         <outlet property="timerLabel" destination="vXT-VO-4oJ" id="S1c-1F-haD"/>
                     </connections>
