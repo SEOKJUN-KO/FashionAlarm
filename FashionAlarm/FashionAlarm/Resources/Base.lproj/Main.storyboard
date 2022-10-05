@@ -210,7 +210,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="지역 설정하기"/>
                                 <connections>
-                                    <action selector="forwardGeoCoding:" destination="8St-ff-6ob" eventType="touchUpInside" id="HDT-Ky-3SG"/>
+                                    <action selector="setLocation:" destination="8St-ff-6ob" eventType="touchUpInside" id="xfX-h1-Lao"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RH7-If-zVf">
