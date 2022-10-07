@@ -17,13 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
                      launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UNUserNotificationCenter.current().delegate = self
-        
-        let authorizationOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .sound])
-        userNotificationCenter.requestAuthorization(options: authorizationOptions) { _, error in // 유저 노티피케이션센터에 허락 요청
-            if let error = error {
-                print("Error: notification authorization request: \(error.localizedDescription)")
-            }
-        }
         return true
     }
 
