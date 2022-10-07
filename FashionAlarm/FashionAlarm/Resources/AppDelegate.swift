@@ -6,24 +6,13 @@
 //
 
 import UIKit
-import NotificationCenter // 노티피케이션 사용하기 위함
-import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let userNotificationCenter = UNUserNotificationCenter.current()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
                      launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        UNUserNotificationCenter.current().delegate = self
-        
-        let authorizationOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .sound])
-        userNotificationCenter.requestAuthorization(options: authorizationOptions) { _, error in // 유저 노티피케이션센터에 허락 요청
-            if let error = error {
-                print("Error: notification authorization request: \(error.localizedDescription)")
-            }
-        }
         return true
     }
 
@@ -41,20 +30,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-}
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    // 노티피케이션 표시가 될 때
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .list, .badge, .sound]) // 표시해주는 것
-        print("hi1")
-//        userNotificationCenter.addInfiniteNotificationRequest()
-    }
-    // 노티피케이션 받고 난 후
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        completionHandler()
-        print("hi2")
-        userNotificationCenter.removePendingNotificationRequests(withIdentifiers: ["FashionAlarmInfiniteAlarmOne", "FashionAlarmInfiniteAlarmTwo"])
-    }
 }
 

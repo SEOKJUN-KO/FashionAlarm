@@ -23,14 +23,11 @@ class SetAlarmViewController: UIViewController {
     
     // 데이트 피커 타이머 초기화가 1분이기 떄문에 60초로
     var duration = 60
-//    var timerStatus: TimerStatus = .end // 타이머의 초기값
     var currentSeconds = 0 // 현재 카운트 다운되고 있는 시간을 초로 저장하는 프로퍼티
     var timer: DispatchSourceTimer? // 타이머
     var audioPlayer: AVAudioPlayer?
     var selectedTime: Date = Date()
     let calendar = Calendar.current
-    var alert: Alert?
-    
     let userNotificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
@@ -67,7 +64,6 @@ class SetAlarmViewController: UIViewController {
     @IBAction func stopMusic(_ sender: Any) {
         self.offMusicBtn.isHidden = true
         audioPlayer?.volume = 0
-        //        audioPlayer?.stop()
     }
 }
 
@@ -122,21 +118,14 @@ extension SetAlarmViewController {
         }
         playMusic()
         audioPlayer?.volume = 0
-//        Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { (t) in
-//            self.audioPlayer?.volume = 100
-//        }
         Timer.scheduledTimer(withTimeInterval: self.selectedTime.timeIntervalSinceNow - Date().timeIntervalSinceNow, repeats: false) { (t) in
             self.audioPlayer?.volume = 100
         }
-        // self.alert = Alert(date: self.datePicker.date, isOn: self.iterSwitch.isOn)
-        // 타이머 시작 후 조작 UI 처리 함수로 빼주기
-        // userNotificationCenter.addNotificationRequest(by: alert!) // 알림을 userNotificationCenter에 추가
     }
     
     private func doWhenTimerEnd(){
          self.audioPlayer?.volume = 100
         // 알람소리 -> iphonedev.wiki로 확인 가능
-        // self.playMusic()
         offMusicBtn.isHidden = false
         if(self.iterSwitch.isOn){
             Timer.scheduledTimer(withTimeInterval: 300, repeats: false) { (t) in // 알람 중간에 껐을 때 노래는 없고 볼륨은 높힌다.
@@ -171,7 +160,6 @@ extension SetAlarmViewController {
     }
     
     private func stopTimer() {
-//        userNotificationCenter.removePendingNotificationRequests(withIdentifiers: [alert!.id])
         self.offMusicBtn.isHidden = true
         self.iterSwitch.isHidden = false
         self.cancelButton.isHidden = true
