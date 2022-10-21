@@ -33,8 +33,6 @@
 - [x] [Brew](https://github.com/Homebrew/brew) - The missing package manager for macOS
 - [x] [Postman](https://www.getpostman.com) - A powerful HTTP client for testing web services
 
-recommendations
-
 ## Building and Running
 The server is not exist.
 
