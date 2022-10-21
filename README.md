@@ -25,7 +25,7 @@
 </pre>
 
 ## Technologies
-- [x] REST API (for weather infomation) ([openweathermap](https://openweathermap.org/)
+- [x] REST API (for weather infomation) ([openweathermap](https://openweathermap.org/))
 - [x] Background Modes (for Audio)
 - [ ] Add tests
 
