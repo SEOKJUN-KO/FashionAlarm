@@ -41,7 +41,7 @@ All the icons were made by me.
 
 ## References
 * [UserDefault Structure](https://github.com/wi-seong-cheol/NOA/blob/main/NOA/LocalDB/UserInfo.swift)
-* [](https://medium.com/@SergDort/viewmodel-in-rxswift-world-13d39faa2cf5) - Good article
+* [API Structure](https://www.youtube.com/watch?v=WR4_KenX0G8&ab_channel=%EA%B0%9C%EB%B0%9C%ED%95%98%EB%8A%94%EC%A0%95%EB%8C%80%EB%A6%AC)
 
 License
 =======
