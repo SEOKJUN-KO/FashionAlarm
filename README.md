@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/64264896/197150610-eba4b826-baf8-4a5f-a347-904f1cc9d6f5.png" alt="NOA logo" height="80">
+  <img src="https://user-images.githubusercontent.com/64264896/197150610-eba4b826-baf8-4a5f-a347-904f1cc9d6f5.png" alt="FashionAlarm logo" height="80">
 </p>
 
 <p align="center">
@@ -27,6 +27,7 @@
 ## Technologies
 - [x] REST API (for weather infomation) ([openweathermap](https://openweathermap.org/))
 - [x] Background Modes (for Audio)
+- [x] SpriteKit ( for Animation )
 - [ ] Add tests
 
 ## Tools
